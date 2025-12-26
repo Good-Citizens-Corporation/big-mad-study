@@ -1,4 +1,3 @@
-# .github/ISSUE_TEMPLATE/slice.yml
 name: Slice (INVEST story)
 description: Small, testable slice of work linked to an epic.
 title: "SLICE: [EPIC-KEY] [short outcome]"
@@ -63,8 +62,8 @@ body:
 
         E2E:
         - BM-E2E-01 – AI-heavy screener happy path
-      validations:
-        required: false
+    validations:
+      required: false
 
   - type: textarea
     id: telemetry
