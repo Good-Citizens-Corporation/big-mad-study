@@ -1,4 +1,4 @@
-name: Slice
+name: Slice (INVEST story)
 description: Small, testable slice of work linked to an epic.
 title: "SLICE: [EPIC-KEY] [short outcome]"
 labels: ["slice"]
@@ -8,7 +8,7 @@ body:
     attributes:
       label: Parent Epic
       description: "Link to the parent epic issue (and include its key, e.g., EPIC-02)."
-      placeholder: "EPIC-02 – Multi-Channel Prompting & Capture (#45)"
+      placeholder: "EPIC-02 – Accessible Screener & Cohort Assignment (#45)"
     validations:
       required: true
 
@@ -35,7 +35,9 @@ body:
     attributes:
       label: Scope and constraints
       description: "What is *in* scope for this slice, and what is explicitly out of scope?"
-      placeholder: "- In scope: ...\n- Out of scope: ..."
+      placeholder: |
+        - In scope: Render screener form fields as per content spec.
+        - Out of scope: Twilio integration, journaling flows.
     validations:
       required: true
 
@@ -45,13 +47,13 @@ body:
       label: Acceptance criteria (Gherkin-style)
       description: "Concrete, testable outcomes. Each line should start with GIVEN / WHEN / THEN."
       placeholder: |
-        - [ ] GIVEN [starting state]
-        - [ ] WHEN [action]
-        - [ ] THEN [visible outcome]
-
-        - [ ] GIVEN participant is on the screener page
+        - [ ] GIVEN a participant is on the screener page
         - [ ] WHEN they submit valid answers
-        - [ ] THEN they see their assigned cohort and next-step instructions
+        - [ ] THEN their responses are persisted and they see a confirmation state
+
+        - [ ] GIVEN required fields are empty
+        - [ ] WHEN they try to submit
+        - [ ] THEN they see accessible error messages tied to the correct inputs
     validations:
       required: true
 
@@ -74,7 +76,11 @@ body:
     attributes:
       label: Telemetry hooks
       description: "What events/properties must be emitted in this slice?"
-      placeholder: "- Fire event screenerSubmitted with { cohort_label, preferred_channel }"
+      placeholder: |
+        - Fire event screenerSubmitted with:
+          - cohort_label
+          - preferred_channel
+          - preferred_language
     validations:
       required: false
 
@@ -83,6 +89,8 @@ body:
     attributes:
       label: Notes / open questions
       description: "Any design questions, debt deferrals, or follow-ups."
-      placeholder: "- TBD: refine error copy for Twilio timeouts\n- Future: add ES-only prompt variant"
+      placeholder: |
+        - TBD: refine error copy for Twilio timeouts
+        - Future: add ES-only prompt variant
     validations:
       required: false

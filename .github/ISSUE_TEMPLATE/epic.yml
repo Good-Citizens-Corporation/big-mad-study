@@ -1,99 +1,122 @@
 name: Epic
-description: Define a multi-slice effort that delivers a clear outcome with measurable success criteria.
+description: High-level outcome spanning multiple slices (stories/tasks).
 title: "EPIC: [short outcome]"
 labels: ["epic"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for big outcomes like:
+        - Public Landing & Orientation
+        - Accessible Screener & Cohort Assignment
+        - Multi-Channel Prompting & Capture
+        - Participant Reflection & Value-Back
+        - ResearchOps Console & Data Integrity
+        - Public Methods & Replication Lab
+        - Governance, Ethics & Community Feedback
+
   - type: input
     id: epic_key
     attributes:
-      label: Epic key
-      description: "Unique identifier (e.g., EPIC-02). Refer to this key in slice titles, PR titles, and tracking docs."
-      placeholder: "EPIC-02 – Multi-Channel Prompting & Capture"
+      label: Epic Key
+      description: >
+        Short handle for this epic (e.g., EPIC-01, EPIC-02). Use this in slice titles, branch names,
+        and PR titles.
+      placeholder: "EPIC-01"
     validations:
       required: true
 
   - type: textarea
-    id: summary
+    id: job_story
     attributes:
-      label: Epic summary
-      description: "What is the high-level capability or problem this epic solves? Keep it concise and outcome-focused."
-      placeholder: "Enable creators to orchestrate prompts and capture data across voice, chat, and email."
+      label: Job story
+      description: "Frame the epic as a job-to-be-done."
+      placeholder: "When [context], I want [motivation], so I can [outcome]."
     validations:
       required: true
 
   - type: textarea
-    id: goals
+    id: hypothesis
     attributes:
-      label: Goals & success signals
-      description: "How will you know the epic succeeded? Include quantitative success signals where possible."
-      placeholder: "- All prompt channels share a consistent UX guideline\n- 90% of participants complete a journey with fewer than 2 errors"
+      label: Hypothesis and null
+      description: |
+        State your primary hypothesis and null.
+
+        Example:
+        - H1: Clear, inclusive framing will increase screener completion.
+        - H0: Multi-language framing will not materially change completion.
+      placeholder: "H1: ...\nH0: ..."
     validations:
       required: true
-
-  - type: textarea
-    id: scope
-    attributes:
-      label: Scope / boundaries
-      description: "What is in scope for this epic, and what is intentionally out of scope?"
-      placeholder: "- In scope: ...\n- Out of scope: ..."
-    validations:
-      required: true
-
-  - type: textarea
-    id: phases
-    attributes:
-      label: Key phases / milestones
-      description: "List the major slices or milestones that will be tracked under this epic."
-      placeholder: "1. Define channel-agnostic prompt config\n2. Implement shared capture library\n3. Validate with cohort pilot"
-    validations:
-      required: false
 
   - type: textarea
     id: success_metrics
     attributes:
       label: Success metrics
-      description: "Concrete measurements we will watch once the epic is live."
-      placeholder: "- Launch pilot with <=5% dropoff between steps\n- Capture telemetry event promptOrchestrated with channel property"
+      description: "What would success look like in measurable terms?"
+      placeholder: |
+        - ≥ 40% screener completion
+        - ≥ 20% non-English participants
+        - ≤ 5% dropoff between screener steps
     validations:
       required: true
 
   - type: textarea
-    id: dependencies
+    id: test_plan
     attributes:
-      label: Dependencies or blockers
-      description: "Teams, data, or approvals that must align before this epic can move forward."
-      placeholder: "- Need analytics schema for promptOrchestrated event\n- Require legal review for new capture flows"
+      label: Test / validation plan
+      description: "How will we validate this epic (pilot, A/B, interviews, etc.)?"
+      placeholder: |
+        - Pilot with 5–10 participants across cohorts
+        - Compare adherence by channel (voice vs SMS vs web)
+        - Run 2–3 follow-up interviews to spot failure modes
     validations:
       required: false
 
   - type: textarea
-    id: risks
+    id: acceptance_criteria
     attributes:
-      label: Risks & mitigation
-      description: "What might delay this epic and how will we reduce that risk?"
-      placeholder: "- Risk: Twilio rate limits could block capture. Mitigation: add retries and guardrails."
+      label: Acceptance criteria (Gherkin-style)
+      description: |
+        Definition of done for this epic. Use Gherkin-style checkboxes:
+        each line should start with GIVEN / WHEN / THEN.
+
+      placeholder: |
+        - [ ] GIVEN the study is live on / and /screener
+        - [ ] WHEN a participant completes the screener
+        - [ ] THEN they are assigned a cohort and can access their journaling instructions
+
+        - [ ] GIVEN telemetry is enabled
+        - [ ] WHEN screenerSubmitted fires
+        - [ ] THEN events include { cohort_label, preferred_channel, preferred_language }
+    validations:
+      required: true
+
+  - type: textarea
+    id: telemetry
+    attributes:
+      label: Telemetry notes
+      description: "Events/properties we must instrument to support this epic."
+      placeholder: |
+        - Events:
+          - landingViewed
+          - screenerStarted
+          - screenerSubmitted
+        - Properties:
+          - cohort_label
+          - preferred_channel
+          - preferred_language
     validations:
       required: false
 
   - type: textarea
-    id: tests
+    id: slices
     attributes:
-      label: Test notes (TDD)
-      description: "Which unit tests and e2e tests will we add or update? Reference test IDs."
-      placeholder: |-
-        Unit:
-        - src/features/screener/__tests__/cohortAssignment.test.ts
-
-        E2E:
-        - BM-E2E-01 – AI-heavy screener happy path
-    validations:
-      required: false
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Notes / open questions
-      description: "Any design questions, debt deferrals, or follow-ups."
-      placeholder: "- TBD: confirm GA event names for capture journey\n- Future: add ES-only prompt variant"
+      label: Linked slices
+      description: "List slice issues for this epic (update as you go)."
+      placeholder: |
+        - [ ] SLICE-01 – Implement /screener page (#123)
+        - [ ] SLICE-02 – Basic screener submission API (#124)
+        - [ ] SLICE-03 – Cohort assignment helper + tests (#125)
     validations:
       required: false
