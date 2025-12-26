@@ -3,24 +3,21 @@ description: Small, testable slice of work linked to an epic.
 title: "SLICE: [EPIC-KEY] [short outcome]"
 labels: ["slice"]
 body:
-  - type: input
+  - type: markdown
+    attributes:
+      value: |
+        **Slice ID:** _automatically generated from the slice title once the issue is created._
+        <!-- slice-id: placeholder -->
+
+  - type: issue
     id: epic_link
     attributes:
       label: Parent Epic
-      description: "Link to the parent epic issue (and include its key, e.g., EPIC-02)."
-      placeholder: "EPIC-02 – Accessible Screener & Cohort Assignment (#45)"
+      description: "Pick the epic this slice belongs to; the link will be attached automatically."
+      placeholder: "Search epics (label:epic)"
+      query: "label:epic state:open"
     validations:
       required: true
-
-  - type: input
-    id: slice_key
-    attributes:
-      label: Slice Key
-      description: "Short identifier (e.g., SLICE-02). Use this in branch/PR names."
-      placeholder: "SLICE-02"
-    validations:
-      required: true
-
   - type: textarea
     id: story
     attributes:

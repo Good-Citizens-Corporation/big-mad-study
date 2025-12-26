@@ -15,17 +15,6 @@ body:
         - Public Methods & Replication Lab
         - Governance, Ethics & Community Feedback
 
-  - type: input
-    id: epic_key
-    attributes:
-      label: Epic Key
-      description: >
-        Short handle for this epic (e.g., EPIC-01, EPIC-02). Use this in slice titles, branch names,
-        and PR titles.
-      placeholder: "EPIC-01"
-    validations:
-      required: true
-
   - type: textarea
     id: job_story
     attributes:
