@@ -1,4 +1,4 @@
-name: Epic (INVEST story)
+name: Epic
 description: Define a multi-slice effort that delivers a clear outcome with measurable success criteria.
 title: "EPIC: [short outcome]"
 labels: ["epic"]

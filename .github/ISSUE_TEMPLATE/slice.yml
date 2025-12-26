@@ -1,4 +1,4 @@
-name: Slice (INVEST story)
+name: Slice
 description: Small, testable slice of work linked to an epic.
 title: "SLICE: [EPIC-KEY] [short outcome]"
 labels: ["slice"]
