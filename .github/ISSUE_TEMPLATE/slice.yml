@@ -1,0 +1,93 @@
+name: Slice
+description: An independantly valuable, estimably small and testable slice of work linked to an epic.
+title: "SLICE: [EPIC-KEY] [short outcome]"
+labels: ["slice"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Slice ID:** _automatically generated from the slice title once the issue is created._
+        <!-- slice-id: placeholder -->
+
+  - type: input
+    id: epic_link
+    attributes:
+      label: Parent Epic
+      description: "Link to the parent epic (include the issue URL or key)."
+      placeholder: "https://github.com/.../issues/123"
+    validations:
+      required: true
+
+  - type: textarea
+    id: story
+    attributes:
+      label: Story (INVEST style)
+      description: "State this as a small, testable story."
+      placeholder: "When [context], I want [capability], so I can [value]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and constraints
+      description: "What is *in* scope for this slice, and what is explicitly out of scope?"
+      placeholder: |
+        - In scope: Render screener form fields as per content spec.
+        - Out of scope: Twilio integration, journaling flows.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria (Gherkin-style)
+      description: "Concrete, testable outcomes. Each line should start with GIVEN / WHEN / THEN."
+      placeholder: |
+        - [ ] GIVEN a participant is on the screener page
+        - [ ] WHEN they submit valid answers
+        - [ ] THEN their responses are persisted and they see a confirmation state
+
+        - [ ] GIVEN required fields are empty
+        - [ ] WHEN they try to submit
+        - [ ] THEN they see accessible error messages tied to the correct inputs
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test notes (TDD)
+      description: "Which unit tests and e2e tests will we add/update? Reference test IDs."
+      placeholder: |
+        Unit:
+        - src/features/screener/__tests__/cohortAssignment.test.ts
+
+        E2E:
+        - BM-E2E-01 – AI-heavy screener happy path
+    validations:
+      required: false
+
+  - type: textarea
+    id: telemetry
+    attributes:
+      label: Telemetry hooks
+      description: "What events/properties must be emitted in this slice?"
+      placeholder: |
+        - Fire event screenerSubmitted with:
+          - cohort_label
+          - preferred_channel
+          - preferred_language
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / open questions
+      description: "Any design questions, debt deferrals, or follow-ups."
+      placeholder: |
+        - TBD: refine error copy for Twilio timeouts
+        - Future: add ES-only prompt variant
+    validations:
+      required: false

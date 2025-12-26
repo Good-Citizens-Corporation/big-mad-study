@@ -1,0 +1,111 @@
+name: Epic
+description: High-level hypothetical outcome delivered from multiple value slices.
+title: "EPIC: [short outcome]"
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for big outcomes like:
+        - Public Landing & Orientation
+        - Accessible Screener & Cohort Assignment
+        - Multi-Channel Prompting & Capture
+        - Participant Reflection & Value-Back
+        - ResearchOps Console & Data Integrity
+        - Public Methods & Replication Lab
+        - Governance, Ethics & Community Feedback
+
+  - type: textarea
+    id: job_story
+    attributes:
+      label: Job story
+      description: "Frame the epic as a job-to-be-done."
+      placeholder: "When [context], I want [motivation], so I can [outcome]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and null
+      description: |
+        State your primary hypothesis and null.
+
+        Example:
+        - H1: Clear, inclusive framing will increase screener completion.
+        - H0: Multi-language framing will not materially change completion.
+      placeholder: "H1: ...\nH0: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success metrics
+      description: "What would success look like in measurable terms?"
+      placeholder: |
+        - ≥ 40% screener completion
+        - ≥ 20% non-English participants
+        - ≤ 5% dropoff between screener steps
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test / validation plan
+      description: "How will we validate this epic (pilot, A/B, interviews, etc.)?"
+      placeholder: |
+        - Pilot with 5–10 participants across cohorts
+        - Compare adherence by channel (voice vs SMS vs web)
+        - Run 2–3 follow-up interviews to spot failure modes
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria (Gherkin-style)
+      description: |
+        Definition of done for this epic. Use Gherkin-style checkboxes:
+        each line should start with GIVEN / WHEN / THEN.
+
+      placeholder: |
+        - [ ] GIVEN the study is live on / and /screener
+        - [ ] WHEN a participant completes the screener
+        - [ ] THEN they are assigned a cohort and can access their journaling instructions
+
+        - [ ] GIVEN telemetry is enabled
+        - [ ] WHEN screenerSubmitted fires
+        - [ ] THEN events include { cohort_label, preferred_channel, preferred_language }
+    validations:
+      required: true
+
+  - type: textarea
+    id: telemetry
+    attributes:
+      label: Telemetry notes
+      description: "Events/properties we must instrument to support this epic."
+      placeholder: |
+        - Events:
+          - landingViewed
+          - screenerStarted
+          - screenerSubmitted
+        - Properties:
+          - cohort_label
+          - preferred_channel
+          - preferred_language
+    validations:
+      required: false
+
+  - type: textarea
+    id: slices
+    attributes:
+      label: Linked slices
+      description: "List slice issues for this epic (update as you go)."
+      placeholder: |
+        - [ ] SLICE-01 – Implement /screener page (#123)
+        - [ ] SLICE-02 – Basic screener submission API (#124)
+        - [ ] SLICE-03 – Cohort assignment helper + tests (#125)
+    validations:
+      required: false
