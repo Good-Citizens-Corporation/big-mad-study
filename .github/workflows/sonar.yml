@@ -9,6 +9,10 @@ on:
 jobs:
   sonar:
     runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # SONAR_HOST_URL is optional on SonarCloud; required for self-hosted
+      # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
     steps:
       - name: Checkout repo
@@ -30,7 +34,3 @@ jobs:
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v2
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # SONAR_HOST_URL is optional on SonarCloud; required for self-hosted
-          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}

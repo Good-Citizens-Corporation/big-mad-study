@@ -21,4 +21,8 @@ jobs:
               );
             } else {
               core.info(`PR title OK: ${title}`);
+<<<<<<< HEAD
             }
+=======
+            }
+>>>>>>> 0731322 (chore: add CI and workflows)
