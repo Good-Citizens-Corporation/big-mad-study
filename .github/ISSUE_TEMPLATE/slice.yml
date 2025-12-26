@@ -9,15 +9,15 @@ body:
         **Slice ID:** _automatically generated from the slice title once the issue is created._
         <!-- slice-id: placeholder -->
 
-  - type: issue
+  - type: input
     id: epic_link
     attributes:
       label: Parent Epic
-      description: "Pick the epic this slice belongs to; the link will be attached automatically."
-      placeholder: "Search epics (label:epic)"
-      query: "label:epic state:open"
+      description: "Link to the parent epic (include the issue URL or key)."
+      placeholder: "https://github.com/.../issues/123"
     validations:
       required: true
+
   - type: textarea
     id: story
     attributes:
