@@ -1,5 +1,5 @@
 name: Epic
-description: High-level outcome spanning multiple slices (stories/tasks).
+description: High-level hypothetical outcome delivered from multiple value slices.
 title: "EPIC: [short outcome]"
 labels: ["epic"]
 body:
