@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions / Discussion
+    url: https://github.com/Good-Citizens-Corporation/big-mad-study/discussions
+    about: Ask questions or discuss research/architecture topics here instead of opening an issue.
+issue_templates:
+  - name: Epic
+    about: High-level outcomes that group related slices.
+    template: epic.yml
+  - name: Slice
+    about: Small INVEST stories that roll up into an epic.
+    template: slice.yml
