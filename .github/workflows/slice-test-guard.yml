@@ -1,0 +1,48 @@
+name: Slice Test Guard
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  require-tests-for-slice:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ensure slice PRs include at least one test file change
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const title = pr.title || "";
+
+            // Only enforce for SLICE: PRs
+            if (!title.startsWith("SLICE:")) {
+              core.info('Not a SLICE PR, skipping test check.');
+              return;
+            }
+
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                per_page: 100
+              }
+            );
+
+            const testFileChanged = files.some(f =>
+              /(\.test|\.spec)\.(c|m)?[jt]s(x)?$/.test(f.filename)
+            );
+
+            if (!testFileChanged) {
+              core.setFailed(
+                'Slice PRs must include at least one test file change (*.test.* or *.spec.*).'
+              );
+            } else {
+              core.info('Test file change detected for this slice PR ✅');
+            }

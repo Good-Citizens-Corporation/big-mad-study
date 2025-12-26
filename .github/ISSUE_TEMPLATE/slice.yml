@@ -1,0 +1,85 @@
+# .github/ISSUE_TEMPLATE/slice.yml
+name: Slice (INVEST story)
+description: Small, testable slice of work linked to an epic.
+title: "SLICE: [EPIC-KEY] [short outcome]"
+labels: ["slice"]
+body:
+  - type: input
+    id: epic_link
+    attributes:
+      label: Parent Epic
+      description: "Link to the parent epic issue (and include its key, e.g., EPIC-02)."
+      placeholder: "EPIC-02 – Multi-Channel Prompting & Capture (#45)"
+    validations:
+      required: true
+
+  - type: input
+    id: slice_key
+    attributes:
+      label: Slice Key
+      description: "Short identifier (e.g., SLICE-02). Use this in branch/PR names."
+      placeholder: "SLICE-02"
+    validations:
+      required: true
+
+  - type: textarea
+    id: story
+    attributes:
+      label: Story (INVEST style)
+      description: "State this as a small, testable story."
+      placeholder: "When [context], I want [capability], so I can [value]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and constraints
+      description: "What is *in* scope for this slice, and what is explicitly out of scope?"
+      placeholder: "- In scope: ...\n- Out of scope: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: "Concrete, testable outcomes. These should drive unit + e2e tests."
+      placeholder: |
+        - Given X, when Y, I see Z on the page.
+        - SMS sent in participant's preferred_language.
+        - e2e test [BM-E2E-01] passes in CI.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test notes (TDD)
+      description: "Which unit tests and e2e tests will we add/update? Reference test IDs."
+      placeholder: |
+        Unit:
+        - src/features/screener/__tests__/cohortAssignment.test.ts
+
+        E2E:
+        - BM-E2E-01 – AI-heavy screener happy path
+      validations:
+        required: false
+
+  - type: textarea
+    id: telemetry
+    attributes:
+      label: Telemetry hooks
+      description: "What events/properties must be emitted in this slice?"
+      placeholder: "- Fire event screenerSubmitted with { cohort_label, preferred_channel }"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / open questions
+      description: "Any design questions, debt deferrals, or follow-ups."
+      placeholder: "- TBD: refine error copy for Twilio timeouts\n- Future: add ES-only prompt variant"
+    validations:
+      required: false

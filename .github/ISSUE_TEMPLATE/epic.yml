@@ -1,0 +1,96 @@
+# .github/ISSUE_TEMPLATE/epic.yml
+name: Epic
+description: High-level outcome spanning multiple slices (stories/tasks).
+title: "EPIC: [short name]"
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for big outcomes like:
+        - Public Landing & Orientation
+        - Accessible Screener & Cohort Assignment
+        - Multi-Channel Prompting & Capture
+        - Participant Reflection & Value-Back
+        - ResearchOps Console & Data Integrity
+        - Public Methods & Replication Lab
+        - Governance, Ethics & Community Feedback
+
+  - type: input
+    id: epic_key
+    attributes:
+      label: Epic Key
+      description: >
+        Short handle for this epic (e.g., EPIC-01, EPIC-02). Use this in slice titles/branches.
+      placeholder: "EPIC-01"
+    validations:
+      required: true
+
+  - type: textarea
+    id: job_story
+    attributes:
+      label: Job story
+      placeholder: "When [context], I want [motivation], so I can [outcome]."
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and null
+      description: |
+        State your primary hypothesis and null.
+        Example:
+        - H1: Clear, inclusive framing will increase screener completion.
+        - H0: Multi-language framing will not materially change completion.
+      placeholder: "H1: ...\nH0: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success metrics
+      description: "What would success look like in measurable terms?"
+      placeholder: "- ≥ 40% screener completion\n- ≥ 20% non-English participants"
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_plan
+    attributes:
+      label: Test / validation plan
+      description: "How will we validate this epic (pilot, A/B, interviews, etc.)?"
+      placeholder: "- Pilot with 5–10 participants across cohorts...\n- Compare adherence by channel..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: "Definition of done for this epic."
+      placeholder: "- All flows implemented for EN + ES\n- Cohort assignment verified on test data\n- ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: telemetry
+    attributes:
+      label: Telemetry notes
+      description: "Events/properties we must instrument to support this epic."
+      placeholder: "- Events: landingViewed, startScreenerClicked, ...\n- Properties: cohort_label, preferred_language..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: slices
+    attributes:
+      label: Linked slices
+      description: "List slice issues for this epic (update as you go)."
+      placeholder: |
+        - [ ] SLICE-01 – Implement /screener page (#123)
+        - [ ] SLICE-02 – Twilio SMS endpoint (#124)
+        - [ ] SLICE-03 – Whisper transcription worker (#130)
+    validations:
+      required: false

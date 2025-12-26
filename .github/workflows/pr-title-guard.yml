@@ -1,0 +1,24 @@
+name: PR Title Guard
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Ensure PR title starts with EPIC: or SLICE:"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title || "";
+            const ok = title.startsWith("EPIC:") || title.startsWith("SLICE:");
+            if (!ok) {
+              core.setFailed(
+                `PR title must start with "EPIC:" or "SLICE:". Current title: "${title}"`
+              );
+            } else {
+              core.info(`PR title OK: ${title}`);
+            }
