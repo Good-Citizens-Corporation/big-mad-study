@@ -1,32 +1,99 @@
-# .github/ISSUE_TEMPLATE/slice.yml
-- type: textarea
-  id: tests
-  attributes:
-    label: Test notes (TDD)
-    description: "Which unit tests and e2e tests will we add/update? Reference test IDs."
-    placeholder: |
-      Unit:
-      - src/features/screener/__tests__/cohortAssignment.test.ts
+name: Epic (INVEST story)
+description: Define a multi-slice effort that delivers a clear outcome with measurable success criteria.
+title: "EPIC: [short outcome]"
+labels: ["epic"]
+body:
+  - type: input
+    id: epic_key
+    attributes:
+      label: Epic key
+      description: "Unique identifier (e.g., EPIC-02). Refer to this key in slice titles, PR titles, and tracking docs."
+      placeholder: "EPIC-02 – Multi-Channel Prompting & Capture"
+    validations:
+      required: true
 
-      E2E:
-      - BM-E2E-01 – AI-heavy screener happy path
-  validations:
-    required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Epic summary
+      description: "What is the high-level capability or problem this epic solves? Keep it concise and outcome-focused."
+      placeholder: "Enable creators to orchestrate prompts and capture data across voice, chat, and email."
+    validations:
+      required: true
 
-- type: textarea
-  id: telemetry
-  attributes:
-    label: Telemetry hooks
-    description: "What events/properties must be emitted in this slice?"
-    placeholder: "- Fire event screenerSubmitted with { cohort_label, preferred_channel }"
-  validations:
-    required: false
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals & success signals
+      description: "How will you know the epic succeeded? Include quantitative success signals where possible."
+      placeholder: "- All prompt channels share a consistent UX guideline\n- 90% of participants complete a journey with fewer than 2 errors"
+    validations:
+      required: true
 
-- type: textarea
-  id: notes
-  attributes:
-    label: Notes / open questions
-    description: "Any design questions, debt deferrals, or follow-ups."
-    placeholder: "- TBD: refine error copy for Twilio timeouts\n- Future: add ES-only prompt variant"
-  validations:
-    required: false
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / boundaries
+      description: "What is in scope for this epic, and what is intentionally out of scope?"
+      placeholder: "- In scope: ...\n- Out of scope: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: phases
+    attributes:
+      label: Key phases / milestones
+      description: "List the major slices or milestones that will be tracked under this epic."
+      placeholder: "1. Define channel-agnostic prompt config\n2. Implement shared capture library\n3. Validate with cohort pilot"
+    validations:
+      required: false
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success metrics
+      description: "Concrete measurements we will watch once the epic is live."
+      placeholder: "- Launch pilot with <=5% dropoff between steps\n- Capture telemetry event promptOrchestrated with channel property"
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies or blockers
+      description: "Teams, data, or approvals that must align before this epic can move forward."
+      placeholder: "- Need analytics schema for promptOrchestrated event\n- Require legal review for new capture flows"
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks & mitigation
+      description: "What might delay this epic and how will we reduce that risk?"
+      placeholder: "- Risk: Twilio rate limits could block capture. Mitigation: add retries and guardrails."
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test notes (TDD)
+      description: "Which unit tests and e2e tests will we add or update? Reference test IDs."
+      placeholder: |-
+        Unit:
+        - src/features/screener/__tests__/cohortAssignment.test.ts
+
+        E2E:
+        - BM-E2E-01 – AI-heavy screener happy path
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes / open questions
+      description: "Any design questions, debt deferrals, or follow-ups."
+      placeholder: "- TBD: confirm GA event names for capture journey\n- Future: add ES-only prompt variant"
+    validations:
+      required: false
