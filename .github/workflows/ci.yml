@@ -21,7 +21,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-      # no --frozen-lockfile so templates are a bit more forgiving
+        # no --frozen-lockfile so templates are a bit more forgiving
         run: yarn install
 
       - name: Lint
