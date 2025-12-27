@@ -1,0 +1,92 @@
+name: Generate slice identifiers
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  ensure-slice-id:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'slice')
+    steps:
+      - name: Generate slice identifier
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            if (!issue) return;
+
+            const hasSliceLabel = (issue.labels ?? []).some(label => label.name === 'slice');
+            if (!hasSliceLabel) return;
+
+            const slugSource = (issue.title ?? '')
+              .replace(/^SLICE:\s*/i, '')
+              .replace(/^\[[^\]]+\]\s*/, '')
+              .trim();
+
+            const slugify = (value) => {
+              const cleaned = (value ?? '')
+                .normalize('NFKD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^A-Za-z0-9]+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/(^-|-$)/g, '')
+                .toLowerCase()
+                .slice(0, 40);
+              return cleaned || 'slice';
+            };
+
+            const slug = slugify(slugSource);
+            const candidateBase = `slice-${slug}`;
+            const body = issue.body ?? '';
+            const sliceIdLineRegex = /^\*\*Slice ID:\*\*\s*([^\n]+)/m;
+            const currentMatch = body.match(sliceIdLineRegex);
+            const currentId = currentMatch?.[1]?.trim() ?? null;
+
+            const existingIssues = await github.paginate(
+              github.rest.issues.listForRepo,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: 'slice',
+                state: 'all',
+                per_page: 100,
+              }
+            );
+
+            const usedIds = new Set();
+            for (const existingIssue of existingIssues) {
+              if (existingIssue.number === issue.number) continue;
+              const match = (existingIssue.body ?? '').match(sliceIdLineRegex);
+              if (match?.[1]) {
+                usedIds.add(match[1].trim());
+              }
+            }
+
+            let uniqueId = candidateBase;
+            let suffix = 2;
+            while (usedIds.has(uniqueId)) {
+              uniqueId = `${candidateBase}-${suffix}`;
+              suffix += 1;
+            }
+
+            if (currentId === uniqueId && currentMatch) return;
+
+            let newBody;
+            if (sliceIdLineRegex.test(body)) {
+              newBody = body.replace(sliceIdLineRegex, `**Slice ID:** ${uniqueId}`);
+            } else {
+              const header = `**Slice ID:** ${uniqueId}`;
+              newBody = body ? `${header}\n\n${body}` : header;
+            }
+
+            if (newBody === body) return;
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: newBody,
+            });
