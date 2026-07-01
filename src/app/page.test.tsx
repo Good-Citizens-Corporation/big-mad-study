@@ -1,22 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Home, { sections } from "./page";
+import { SlideDeck } from "../../components/SlideDeck";
+import { publicHomeSlides } from "../content/publicHome";
 
-describe("Home", () => {
-  it("renders without crashing", () => {
-    render(<Home />);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      /Welcome to the Big Mad Study/,
-    );
+describe("Home page SlideDeck", () => {
+  it("renders the study title", () => {
+    render(<SlideDeck slides={publicHomeSlides} />);
+    expect(
+      screen.getByRole("heading", { name: /The Big-Mad Behavioral Study/i }),
+    ).toBeInTheDocument();
   });
 
-  it("renders navigation links with accessible names", () => {
-    render(<Home />);
-    sections.forEach((section) => {
-      const link = screen.getByRole("link", {
-        name: new RegExp(section.title, "i"),
-      });
-      expect(link).toBeInTheDocument();
-    });
+  it("renders the start here link", () => {
+    render(<SlideDeck slides={publicHomeSlides} />);
+    const startLinks = screen.getAllByRole("link", { name: /Start here/i });
+    expect(startLinks.length).toBeGreaterThan(0);
   });
 });
