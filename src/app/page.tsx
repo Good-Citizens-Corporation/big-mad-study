@@ -1,6 +1,4 @@
-import { SlideDeck } from "../../components/SlideDeck";
-import { TopNav } from "../../components/TopNav";
-import { publicHomeSlides } from "@/content/publicHome";
+import { HomeContent } from "./home-content";
 
 export const metadata = {
   title: "The Big-Mad Behavioral Study",
@@ -9,10 +7,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  return (
-    <>
-      <TopNav />
-      <SlideDeck slides={publicHomeSlides} />
-    </>
-  );
+  return <HomeContent />;
 }
