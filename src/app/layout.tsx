@@ -43,8 +43,8 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col bg-slate-950 text-slate-50">
             <LayoutHeader navLinks={navLinks} />
 
-            <main className="flex-1 px-6 py-10">
-              <div className="mx-auto w-full max-w-6xl rounded-3xl border border-slate-800/60 bg-slate-900/70 p-8 shadow-[0_10px_80px_rgba(2,6,23,0.8)]">
+            <main className="flex-1">
+              <div className="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
                 {children}
               </div>
             </main>

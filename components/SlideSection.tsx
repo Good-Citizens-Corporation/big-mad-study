@@ -41,8 +41,8 @@ export function SlideSection({ slide }: { slide: Slide }) {
   };
 
   return (
-    <section id={slide.id} className="w-screen min-h-[100vh] snap-start">
-      <div className="mx-auto flex h-full max-w-3xl flex-col justify-center px-6 py-16">
+    <section id={slide.id} className="w-full border-b border-slate-800/50 py-16 md:py-20">
+      <div className="mx-auto flex max-w-3xl flex-col px-6">
         {slide.emoji && (
           <div
             aria-hidden="true"
