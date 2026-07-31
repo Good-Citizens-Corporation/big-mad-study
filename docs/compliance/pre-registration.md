@@ -46,7 +46,17 @@ Stated as H1/H0 pairs, per the epics they come from.
 - **H1:** Higher self-reported automation exposure is associated with higher self-reported frustration and with displacement of that frustration onto people rather than tools.
 - **H0:** Self-reported automation exposure shows no meaningful association with frustration intensity or its direction of displacement.
 
-**[DECIDE]** — H1-D is the study's actual research question and is currently the _least_ specified of the four, because the epics were written around delivery rather than analysis. Before submitting, state: the exposure measure, the frustration measure, the displacement coding scheme, and what magnitude would count as meaningful. A hypothesis that cannot be disconfirmed by a specific result is not registered, it is merely published.
+**Operational definitions — [PROPOSED, needs sign-off before submission]**
+
+H1-D was the least specified of the four, because the epics were written around delivery rather than analysis. A hypothesis that cannot be disconfirmed by a specific result is not registered, it is merely published. The following makes it disconfirmable:
+
+- **Automation exposure** — the screener's exposure items, scored into the cohort label `heavy_ai` / `light_ai` / `low_ai` by the deterministic rules in EPIC-02. Cohort is the exposure variable; it is a grouping, not a treatment.
+- **Frustration intensity** — a single 0–10 self-rating attached to each check-in ("how much did that moment get to you?"), averaged per participant across their study week. **[DECIDE]** — this item does not exist yet in the check-in design; adding it is a prerequisite for H1-D and belongs in the capture EPIC.
+- **Displacement target** — each check-in coded to exactly one of `tool`, `self`, `other_people`, `none/unclear`. Two independent coders, disagreements resolved by a third. Inter-rater agreement reported as Cohen's κ; **κ ≥ 0.70 required** before the coded variable is used at all. If agreement falls below that, the displacement analysis is reported as failed rather than patched.
+- **Meaningful magnitude** — declared in advance so a null cannot be talked into a finding:
+  - frustration: a **≥ 0.5 point** difference in mean rating between the `heavy_ai` and `low_ai` cohorts on the 0–10 scale;
+  - displacement: **Cramér's V ≥ 0.2** for the cohort × target association.
+  - Anything smaller is reported as "no meaningful association" even if it reaches statistical significance at this sample size.
 
 ## Design
 
@@ -60,7 +70,7 @@ Stated as H1/H0 pairs, per the epics they come from.
 - **Target:** ≥ 20 participants per cohort in the first wave (EPIC-02).
 - **Recruitment:** LinkedIn and extended network initially. **[DECIDE]** — additional channels; note that channel choice materially affects sample composition, and EPIC-02 explicitly measures against over-representation.
 - **Eligibility:** 18+, able to complete voice or SMS check-ins for ~a week, English for this pilot.
-- **Stopping rule:** **[DECIDE]** — state when recruitment ends. "When we have enough" is not a stopping rule and invites optional stopping.
+- **Stopping rule — [PROPOSED]:** recruitment closes at **90 enrolled participants or 6 weeks from launch, whichever comes first**, and is not reopened to chase a result. Analysis runs once, after the last enrolled participant completes their week. Declaring this now is what stops optional stopping — looking at the data, not liking it, and recruiting a bit more.
 
 ## Measures
 
@@ -70,12 +80,21 @@ Stated as H1/H0 pairs, per the epics they come from.
 
 ## Analysis plan
 
-**[DECIDE]** — the weakest section, and the one reviewers will read hardest. Specify before submission:
+**[PROPOSED, needs sign-off before submission]**
 
-- Primary analysis for H1-D, including the statistical test.
-- How free-text and transcripts are coded, by whom, and how inter-rater agreement is established.
-- Handling of missing days and partial participation.
-- Whether any subgroup analyses are planned, or exploratory. Unregistered subgroup analysis presented as confirmatory is the most common way studies mislead without lying.
+Deliberately simple. At ~20 participants per cohort, an elaborate model would imply precision the design cannot deliver; the pre-specification matters more than the sophistication.
+
+**Primary — frustration.** Mean per-participant frustration rating compared across the three cohorts by Kruskal–Wallis (the 0–10 ratings are ordinal and will not be assumed normal). If significant at α = 0.05, pairwise Dunn tests with Holm correction. Reported with the `heavy_ai` − `low_ai` difference and its confidence interval, judged against the ≥ 0.5 threshold above.
+
+**Primary — displacement.** Cohort × displacement-target contingency table, χ² test of independence, effect size as Cramér's V against the ≥ 0.2 threshold. Cells with expected count < 5 collapse `none/unclear` into a single residual category, decided now rather than after seeing the table.
+
+**Coding.** Two coders work independently from a written codebook, blind to cohort. κ reported before any inferential result. Voice entries are coded from transcripts, not audio, so coders never hear a participant's voice.
+
+**Missing data.** Participants with fewer than 3 check-in days are excluded from the primary analyses and reported separately as partial participants, with their count and cohort distribution. No imputation. The exclusion rule is set here, before any data exists, precisely so it cannot be tuned later.
+
+**Subgroups.** None are confirmatory. Any analysis by profession, tenure, channel, or demographic is **exploratory**, will be labelled as such in every report, and cannot be presented as testing H1-D. Unregistered subgroup analysis presented as confirmatory is the most common way studies mislead without lying.
+
+**Analyst.** **[DECIDE]** — who runs this, and whether they are blind to cohort labels during coding.
 
 ## Known limitations, registered in advance
 
