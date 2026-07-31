@@ -50,7 +50,7 @@ Rules:
 - **All four must pass. No suppression.** Do not silence a rule to get green; fix the code, or annotate with an `eslint-disable-next-line ... -- <reason> (#issue)` naming why the rule genuinely cannot apply.
 - **`yarn ci` is currently broken and is not the gate.** It chains `yarn test:ci`, which needs `@vitest/coverage-v8` — not installed. Until that dependency lands, run the four commands above individually. Do not report `yarn ci` as passing; it does not run.
 - **Coverage is not gated and not measured.** There is no threshold and no upload. Do not claim a coverage gate that does not exist.
-- **E2E is not in CI.** `yarn test:e2e` runs on the husky `prepush` hook only. Any change touching the landing page, routing, or landmarks must run it locally — CI will not catch a break. `--verbose` prints the Gherkin AC log.
+- **E2E now runs in CI** (`E2E & accessibility` job, added by SLICE-03), as well as on the husky `prepush` hook. `--verbose` prints the Gherkin AC log. It covers BM-E2E-01 through -04, including the axe/keyboard/heading accessibility baseline.
 - **Two PR guards run on top of CI**, and both are title-sensitive:
   - `pr-title-guard` — the PR title must start with `EPIC:` or `SLICE:`.
   - `slice-test-guard` — a `SLICE:` PR must change at least one `*.test.*` / `*.spec.*` file. A slice with no test change cannot merge, by design.
