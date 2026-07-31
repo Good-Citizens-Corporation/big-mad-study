@@ -1,19 +1,29 @@
 export default function ParticipantsPage() {
   return (
-    <section className="space-y-6">
-      <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-        Participants
-      </p>
-      <h1 className="text-4xl font-semibold text-white">Participants</h1>
-      <p className="text-lg text-slate-300">
-        This page describes who can join the study, what participation looks
-        like, and how we respect privacy across every interaction.
-      </p>
-      <ul className="space-y-2 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-5 text-slate-300">
-        <li>• Adults 18+ from any background are welcome.</li>
-        <li>• Participation is fully remote and self-paced.</li>
-        <li>• Data is de-identified before analysis to protect identities.</li>
-      </ul>
-    </section>
+    <main className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
+      <section>
+        <p className="font-data text-[0.6rem] uppercase tracking-[0.16em] text-ink-soft">
+          Participants
+        </p>
+        <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3rem)] font-normal leading-[1.1]">
+          Participants
+        </h1>
+        <p className="mt-6 text-[1.05rem] leading-[1.7]">
+          This page describes who can join the study, what participation looks
+          like, and how we respect privacy across every interaction.
+        </p>
+        <ul className="mt-16 space-y-4">
+          <li className="border-t border-hairline pt-4">
+            Adults 18+ from any background are welcome.
+          </li>
+          <li className="border-t border-hairline pt-4">
+            Participation is fully remote and self-paced.
+          </li>
+          <li className="border-t border-hairline pt-4">
+            Data is de-identified before analysis to protect identities.
+          </li>
+        </ul>
+      </section>
+    </main>
   );
 }

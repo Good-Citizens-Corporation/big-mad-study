@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { HeaderVariantProvider } from "./hooks/HeaderVariantProvider";
 import { LayoutHeader } from "./layout-header";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// The display voice. Everything else rides the body and data stacks.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -37,27 +45,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-50`}
+        className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable} bg-paper text-ink`}
       >
         <HeaderVariantProvider>
-          <div className="flex min-h-screen flex-col bg-slate-950 text-slate-50">
+          <div className="flex min-h-screen flex-col">
             <LayoutHeader navLinks={navLinks} />
 
-            <main className="flex-1">
-              <div className="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
-                {children}
-              </div>
-            </main>
+            {/* Each page owns its own <main>. The home page's nav has to sit
+                outside it to count as a banner landmark, and a layout-level
+                <main> here would also nest inside the deck's own. */}
+            <div className="flex-1">{children}</div>
 
-            <footer className="border-t border-slate-800/70 bg-slate-950/60">
-              <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+            <footer className="border-t border-hairline">
+              <div className="mx-auto flex max-w-3xl flex-col gap-4 px-6 py-8 font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft sm:flex-row sm:items-center sm:justify-between">
                 <p>© {year} Big Mad Study</p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-6">
                   {navLinks.map((link) => (
                     <Link
                       key={`footer-${link.href}`}
                       href={link.href}
-                      className="text-slate-300 transition-colors hover:text-white"
+                      className="no-underline hover:text-ink"
                     >
                       {link.label}
                     </Link>

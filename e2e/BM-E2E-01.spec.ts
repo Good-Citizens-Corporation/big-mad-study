@@ -52,24 +52,26 @@ test("BM-E2E-01 – Landing → About → Methods → Participants navigation ha
     await expect(page.getByRole("contentinfo")).toBeVisible();
   });
 
+  // The landing page carries its own section nav; the cross-page links live
+  // in the footer here and in the Primary nav on every other route.
+  const footerNav = page.getByRole("contentinfo");
   let primaryNav = page.getByRole("navigation", { name: "Primary" });
 
   await runStep(gherkinSteps.landing.hero, async () => {
     await expect(
-      page.getByRole("heading", { name: "Welcome to the Big Mad Study" }),
+      page.getByRole("heading", { name: "The Big-Mad Behavioral Study" }),
     ).toBeVisible();
-    primaryNav = page.getByRole("navigation", { name: "Primary" });
-    await expect(primaryNav.getByRole("link", { name: "About" })).toBeVisible();
+    await expect(footerNav.getByRole("link", { name: "About" })).toBeVisible();
     await expect(
-      primaryNav.getByRole("link", { name: "Methods" }),
+      footerNav.getByRole("link", { name: "Methods" }),
     ).toBeVisible();
     await expect(
-      primaryNav.getByRole("link", { name: "Participants" }),
+      footerNav.getByRole("link", { name: "Participants" }),
     ).toBeVisible();
   });
 
   await runStep(gherkinSteps.aboutNav.click, async () => {
-    await primaryNav.getByRole("link", { name: "About" }).click();
+    await footerNav.getByRole("link", { name: "About" }).click();
   });
   await runStep(gherkinSteps.aboutNav.when, async () => {
     await expect(page).toHaveURL(/\/about$/);
@@ -78,6 +80,7 @@ test("BM-E2E-01 – Landing → About → Methods → Participants navigation ha
     await expect(
       page.getByRole("heading", { name: "About the Study" }),
     ).toBeVisible();
+    primaryNav = page.getByRole("navigation", { name: "Primary" });
   });
 
   await runStep(gherkinSteps.methodsNav.click, async () => {

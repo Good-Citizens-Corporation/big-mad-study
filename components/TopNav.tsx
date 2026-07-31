@@ -14,15 +14,20 @@ export async function TopNav() {
     { label: "Contact", href: `${anchorBase}#contact` },
   ];
 
+  // A wall label, not a floating panel: it sits in the flow on the same paper
+  // as everything else, so nothing has to be padded out from under it.
   return (
-    <header className="fixed inset-x-0 top-4 z-50">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between rounded-3xl border border-white/20 bg-slate-950/70 px-6 py-3 text-sm font-semibold text-slate-100 shadow-2xl backdrop-blur-xl">
-        <div className="flex flex-wrap items-center gap-4 text-slate-100">
+    <header className="w-full">
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-6 font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft">
+        <nav
+          aria-label="Sections"
+          className="flex flex-wrap items-center gap-6"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-1 text-xs uppercase tracking-[0.3em] transition hover:bg-white/10"
+              className="no-underline hover:text-accent"
             >
               {link.label}
             </Link>
@@ -30,15 +35,15 @@ export async function TopNav() {
           {qualified && (
             <Link
               href="/participants"
-              className="rounded-full border border-white/30 px-3 py-1 text-xs uppercase tracking-[0.3em] transition hover:bg-white/20"
+              className="border-b border-rule pb-[0.15rem] no-underline hover:border-ink hover:text-ink"
             >
               Participant guide
             </Link>
           )}
-        </div>
+        </nav>
         <Link
           href="/start"
-          className="rounded-full bg-white px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-900 transition hover:bg-white/80"
+          className="rounded-full border border-accent px-5 py-2 text-accent no-underline"
         >
           Start here
         </Link>
