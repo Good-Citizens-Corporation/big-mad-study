@@ -9,15 +9,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Ensure PR title starts with EPIC: or SLICE:"
+      - name: "Ensure PR title starts with a recognised prefix"
         uses: actions/github-script@v7
         with:
           script: |
             const title = context.payload.pull_request.title || "";
-            const ok = title.startsWith("EPIC:") || title.startsWith("SLICE:");
+            // CHORE and DOCS exist because the repo does chore work but had
+            // no way to title it — this guard failed its own adoption PR.
+            const PREFIXES = ["EPIC:", "SLICE:", "CHORE:", "DOCS:"];
+            const ok = PREFIXES.some((prefix) => title.startsWith(prefix));
             if (!ok) {
               core.setFailed(
-                `PR title must start with "EPIC:" or "SLICE:". Current title: "${title}"`
+                `PR title must start with one of ${PREFIXES.join(" ")} — got: "${title}"`
               );
             } else {
               core.info(`PR title OK: ${title}`);
