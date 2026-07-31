@@ -15,6 +15,11 @@ export function SlideSection({
   const marker = String(index + 1).padStart(2, "0");
   const ref = useRef<HTMLElement>(null);
 
+  // The deck is one document, so the first slide's title is the page's h1 and
+  // every subsequent slide is a section beneath it. Rendering them all as h2
+  // left the landing page with no h1 at all.
+  const Heading = index === 0 ? "h1" : "h2";
+
   // landingInfoSectionViewed — fires once per section, the first time it
   // enters the viewport. Guarded because jsdom has no IntersectionObserver.
   useEffect(() => {
@@ -93,9 +98,9 @@ export function SlideSection({
         >
           {marker}
         </p>
-        <h2 className="font-display text-[clamp(2rem,5vw,3rem)] font-normal leading-[1.1]">
+        <Heading className="font-display text-[clamp(2rem,5vw,3rem)] font-normal leading-[1.1]">
           {slide.title}
-        </h2>
+        </Heading>
         {slide.subtitle && (
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
             {slide.subtitle}

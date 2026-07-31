@@ -34,3 +34,29 @@ jobs:
 
       - name: Build
         run: yarn build
+
+  e2e:
+    name: E2E & accessibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install Playwright browser
+        run: yarn playwright install --with-deps chromium
+
+      # Includes BM-E2E-03, the axe/keyboard/heading accessibility baseline.
+      # Until now e2e ran only on the local prepush hook, so a landmark or
+      # contrast regression could merge with every check green.
+      - name: E2E suite
+        run: yarn test:e2e --verbose

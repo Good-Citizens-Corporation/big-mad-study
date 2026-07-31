@@ -22,9 +22,12 @@ export function LayoutHeader({
           <p className="font-data text-[0.6rem] uppercase tracking-[0.16em] text-ink-soft">
             Public Orientation
           </p>
-          <h1 className="mt-2 font-display text-2xl font-normal">
+          {/* Site name, not the page's heading — every page below carries its
+              own h1, and two of them is worse than none for a screen reader
+              navigating by heading. */}
+          <p className="mt-2 font-display text-2xl font-normal">
             Big Mad Study
-          </h1>
+          </p>
         </div>
         <nav
           aria-label="Primary"
