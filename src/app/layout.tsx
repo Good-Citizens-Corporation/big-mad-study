@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { HeaderVariantProvider } from "./hooks/HeaderVariantProvider";
+import { LayoutHeader } from "./layout-header";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// The display voice. Everything else rides the body and data stacks.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -35,59 +45,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-50`}
+        className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable} bg-paper text-ink`}
       >
-        <div className="flex min-h-screen flex-col bg-slate-950 text-slate-50">
-          <header className="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between space-x-6 px-6 py-5">
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">
-                  Public Orientation
-                </p>
-                <h1 className="text-2xl font-semibold tracking-tight text-white">
-                  Big Mad Study
-                </h1>
-              </div>
-              <nav
-                aria-label="Primary"
-                className="flex items-center gap-4 text-sm font-medium"
-              >
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="rounded-full px-4 py-2 transition-colors hover:bg-slate-800"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-          </header>
+        <HeaderVariantProvider>
+          <div className="flex min-h-screen flex-col">
+            <LayoutHeader navLinks={navLinks} />
 
-          <main className="flex-1 px-6 py-10">
-            <div className="mx-auto w-full max-w-6xl rounded-3xl border border-slate-800/60 bg-slate-900/70 p-8 shadow-[0_10px_80px_rgba(2,6,23,0.8)]">
-              {children}
-            </div>
-          </main>
+            {/* Each page owns its own <main>. The home page's nav has to sit
+                outside it to count as a banner landmark, and a layout-level
+                <main> here would also nest inside the deck's own. */}
+            <div className="flex-1">{children}</div>
 
-          <footer className="border-t border-slate-800/70 bg-slate-950/60">
-            <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-              <p>© {year} Big Mad Study</p>
-              <div className="flex flex-wrap gap-3">
-                {navLinks.map((link) => (
-                  <Link
-                    key={`footer-${link.href}`}
-                    href={link.href}
-                    className="text-slate-300 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+            <footer className="border-t border-hairline">
+              <div className="mx-auto flex max-w-3xl flex-col gap-4 px-6 py-8 font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft sm:flex-row sm:items-center sm:justify-between">
+                <p>© {year} Big Mad Study</p>
+                <div className="flex flex-wrap gap-6">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={`footer-${link.href}`}
+                      href={link.href}
+                      className="no-underline hover:text-ink"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-          </footer>
-        </div>
+            </footer>
+          </div>
+        </HeaderVariantProvider>
       </body>
     </html>
   );

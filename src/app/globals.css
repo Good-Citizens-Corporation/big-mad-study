@@ -1,28 +1,126 @@
 @import "tailwindcss";
 
+/*
+  Design system ported from paulagallery.com, carrying Good Citizens' signal
+  colors.
+
+  Gallery white. Rooms differ by a barely-there shift in the paper, never by a
+  change of ground — the walls stay white. One webfont for the display voice;
+  body and data sit on the visitor's own stack where the browser renders them
+  better than we would.
+
+  Good Citizens' own tokens (src/tokens/colors.ts in goodcitizens.us) assume a
+  dark ground: its signal colors are tuned against #0B0B0F ink, where teal and
+  yellow read as light. Dropped onto paper they land at 1.35–3.88:1 and fail
+  outright. Each one below is darkened along its own hue until it clears the
+  contrast bar for the job it does — the brand hue survives, the luminance does
+  not, because it cannot.
+*/
+
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
+  --paper: #fbfaf8;
+  --paper-alt: #f4f2ee;
+  --ink: #1a1a18;
+
+  /* Darkened from the gallery's #6f6c66 (5.02:1 — AA only). Secondary copy
+     carries too much of this page to sit below AAA. */
+  --ink-soft: #524f49;
+
+  /* Two weights of line. --hairline is decorative: section dividers and the
+     footer rule, which carry no information and are exempt from 1.4.11.
+     --rule is for anything that bounds a control, where 3:1 is required. */
+  --hairline: #ddd9d2;
+  --rule: #8f877a;
+
+  /* Good Citizens' lead signal, purple, is the one hue that survives paper
+     nearly intact (#8700DA is already 6.62:1). Nudged to 7.72 so it clears
+     AAA as text, since it carries the markers and the primary action. */
+  --accent: #7a00c2;
+
+  /* The rest of the signal set, re-grounded for paper at AA (4.5:1). Unused
+     today; EPIC-02 needs three distinguishable cohort labels, and these are
+     what those should be drawn from rather than a fresh invention. */
+  --signal-teal: #008277;
+  --signal-yellow: #837300;
+  --signal-magenta: #dd1d6d;
+  --signal-green: #008700;
+  --signal-red: #e31c00;
+
+  --shadow-rgb: 28, 22, 20;
+  --shadow-key-op: 0.15;
+  --shadow-ambient-op: 0.05;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-alt: var(--paper-alt);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-hairline: var(--hairline);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-signal-teal: var(--signal-teal);
+  --color-signal-yellow: var(--signal-yellow);
+  --color-signal-magenta: var(--signal-magenta);
+  --color-signal-green: var(--signal-green);
+  --color-signal-red: var(--signal-red);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-data:
+    var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Everything below sits in the base layer so utility classes still win — an
+   unlayered reset would outrank every px-6 and mt-4 on the page. */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+
+  html {
+    background: var(--paper);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-plex-sans), system-ui, sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Links look like links. Underlines are the browser's, sat on the baseline
+     where they belong rather than removed and reinvented. */
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  /* No custom focus ring: the visitor's own browser and OS already draw the
+     one they recognise, and it is always more legible than ours. */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  margin: 0;
-  min-height: 100vh;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

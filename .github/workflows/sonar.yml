@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
 
 jobs:
   sonar:
@@ -32,5 +31,13 @@ jobs:
       - name: Run tests with coverage
         run: yarn test:ci
 
+      # Skips rather than fails when the token is absent. An unauthenticated
+      # scan exits 403, which made this check permanently red on every PR —
+      # which trains everyone to ignore a security gate.
       - name: SonarQube Scan
+        if: env.SONAR_TOKEN != ''
         uses: sonarsource/sonarqube-scan-action@v2
+
+      - name: Note skipped scan
+        if: env.SONAR_TOKEN == ''
+        run: echo "::warning::SONAR_TOKEN is not set — SonarCloud scan skipped."
