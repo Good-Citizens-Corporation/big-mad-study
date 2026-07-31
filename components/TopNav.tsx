@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
+import { StartScreenerLink } from "./StartScreenerLink";
 
 const anchorBase = process.env.NEXT_PUBLIC_PUBLIC_ANCHOR_BASE ?? "/";
 
@@ -41,12 +42,13 @@ export async function TopNav() {
             </Link>
           )}
         </nav>
-        <Link
+        <StartScreenerLink
           href="/start"
+          location="nav"
           className="rounded-full border border-accent px-5 py-2 text-accent no-underline"
         >
           Start here
-        </Link>
+        </StartScreenerLink>
       </div>
     </header>
   );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import type { Slide, SlideBodyItem, SlideCTA } from "@/lib/types";
 import { track } from "@/lib/telemetry";
+import { StartScreenerLink } from "./StartScreenerLink";
 
 export function SlideSection({
   slide,
@@ -68,19 +69,33 @@ export function SlideSection({
   // Two registers only: the outlined pill that carries the next step, and the
   // quiet rule beneath a word for everything else.
   const renderCTAs = (ctas: SlideCTA[]) => {
-    return ctas.map((cta) => (
-      <Link
-        key={cta.href}
-        href={cta.href}
-        className={
-          cta.variant === "primary"
-            ? "rounded-full border border-accent px-6 py-3 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent no-underline"
-            : "border-b border-rule pb-[0.15rem] font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft no-underline hover:border-accent hover:text-accent"
-        }
-      >
-        {cta.label}
-      </Link>
-    ));
+    return ctas.map((cta) => {
+      const className =
+        cta.variant === "primary"
+          ? "rounded-full border border-accent px-6 py-3 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent no-underline"
+          : "border-b border-rule pb-[0.15rem] font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft no-underline hover:border-accent hover:text-accent";
+
+      // The primary CTA is the funnel step EPIC-01 is measured on, so it
+      // reports where on the page the click came from.
+      if (cta.variant === "primary") {
+        return (
+          <StartScreenerLink
+            key={cta.href}
+            href={cta.href}
+            location={slide.id || slide.title}
+            className={className}
+          >
+            {cta.label}
+          </StartScreenerLink>
+        );
+      }
+
+      return (
+        <Link key={cta.href} href={cta.href} className={className}>
+          {cta.label}
+        </Link>
+      );
+    });
   };
 
   return (
