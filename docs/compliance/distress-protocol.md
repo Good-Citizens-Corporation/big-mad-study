@@ -12,11 +12,11 @@ A protocol written after the first disclosure is not a protocol. It is an improv
 
 Three tiers. **[DECIDE]** — a clinician should review these definitions; the boundaries below are a starting point, not a clinical instrument.
 
-| Tier | Looks like | Response window |
-| --- | --- | --- |
+| Tier               | Looks like                                                                                                            | Response window                            |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
 | **1 — Concerning** | Persistent hopelessness, burnout language, heavy drinking as coping, disclosure of a bad situation without acute risk | **[DECIDE]** — recommend next business day |
-| **2 — Serious** | Passive ideation ("what's the point"), disclosure of abuse or violence, disclosure about a child or vulnerable adult | **[DECIDE]** — recommend same day |
-| **3 — Acute** | Active self-harm intent, a stated plan, immediate danger to self or others | Immediate |
+| **2 — Serious**    | Passive ideation ("what's the point"), disclosure of abuse or violence, disclosure about a child or vulnerable adult  | **[DECIDE]** — recommend same day          |
+| **3 — Acute**      | Active self-harm intent, a stated plan, immediate danger to self or others                                            | Immediate                                  |
 
 ## What the response is
 

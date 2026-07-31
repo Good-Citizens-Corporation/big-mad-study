@@ -1,20 +1,20 @@
 # Retention & Destruction Schedule — DRAFT
 
 > **Not approved.** Draft for counsel review — slices #33 and #34.
-> Illinois BIPA requires a *published* retention schedule and destruction guidelines for biometric identifiers, with a hard outer limit. That obligation is what makes this a document rather than a config value.
+> Illinois BIPA requires a _published_ retention schedule and destruction guidelines for biometric identifiers, with a hard outer limit. That obligation is what makes this a document rather than a config value.
 
 ## Schedule
 
-| Data | Retention | Destruction trigger | Owner |
-| --- | --- | --- | --- |
-| Raw voice audio | **[DECIDE]** — recommend the shorter of *transcription complete + 30 days* or *study end + 90 days* | Automated job | **[DECIDE]** |
-| Transcripts (de-identified) | **[DECIDE]** | Manual, on request or schedule | **[DECIDE]** |
-| Screener responses | **[DECIDE]** | Automated job | **[DECIDE]** |
-| Survey responses | **[DECIDE]** | Automated job | **[DECIDE]** |
-| Contact details (email/phone) | Study end + **[DECIDE]** | Automated job | **[DECIDE]** |
-| Consent records | Longer than the data they authorize — **[DECIDE]** | Manual | **[DECIDE]** |
-| Analytics | **[DECIDE]** | Provider default | **[DECIDE]** |
-| Published aggregates | Indefinite | N/A — not personal data | — |
+| Data                          | Retention                                                                                           | Destruction trigger            | Owner        |
+| ----------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
+| Raw voice audio               | **[DECIDE]** — recommend the shorter of _transcription complete + 30 days_ or _study end + 90 days_ | Automated job                  | **[DECIDE]** |
+| Transcripts (de-identified)   | **[DECIDE]**                                                                                        | Manual, on request or schedule | **[DECIDE]** |
+| Screener responses            | **[DECIDE]**                                                                                        | Automated job                  | **[DECIDE]** |
+| Survey responses              | **[DECIDE]**                                                                                        | Automated job                  | **[DECIDE]** |
+| Contact details (email/phone) | Study end + **[DECIDE]**                                                                            | Automated job                  | **[DECIDE]** |
+| Consent records               | Longer than the data they authorize — **[DECIDE]**                                                  | Manual                         | **[DECIDE]** |
+| Analytics                     | **[DECIDE]**                                                                                        | Provider default               | **[DECIDE]** |
+| Published aggregates          | Indefinite                                                                                          | N/A — not personal data        | —            |
 
 ## Rules
 

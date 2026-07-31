@@ -14,14 +14,14 @@ The rest of this page is the detail behind those four claims.
 
 ## What we collect, and why
 
-| What | Why | Kept for |
-| --- | --- | --- |
-| Screener answers (work context, automation exposure) | To assign a study cohort | **[DECIDE]** |
-| Check-in entries (text) | The research data itself | **[DECIDE]** |
-| Check-in entries (audio, optional) | The research data itself | Audio deleted after **[DECIDE]**; transcript retained |
-| Survey answers (pre and post) | To measure change over the week | **[DECIDE]** |
-| Contact details (email and/or phone) | To send check-in prompts and pay compensation | Deleted at study end + **[DECIDE]** |
-| Website analytics | To see whether the page explains itself | **[DECIDE]** |
+| What                                                 | Why                                           | Kept for                                              |
+| ---------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------- |
+| Screener answers (work context, automation exposure) | To assign a study cohort                      | **[DECIDE]**                                          |
+| Check-in entries (text)                              | The research data itself                      | **[DECIDE]**                                          |
+| Check-in entries (audio, optional)                   | The research data itself                      | Audio deleted after **[DECIDE]**; transcript retained |
+| Survey answers (pre and post)                        | To measure change over the week               | **[DECIDE]**                                          |
+| Contact details (email and/or phone)                 | To send check-in prompts and pay compensation | Deleted at study end + **[DECIDE]**                   |
+| Website analytics                                    | To see whether the page explains itself       | **[DECIDE]**                                          |
 
 We do **not** collect your name at work, your employer, your job title in identifiable form, your location beyond **[DECIDE]**, or anything about your health beyond what you volunteer in an entry.
 
@@ -39,12 +39,12 @@ If you opt into voice check-ins, we collect a recording of your voice. Several U
 
 An unnamed processor is not a disclosure, so here they are:
 
-| Company | What they do | Agreement |
-| --- | --- | --- |
-| Twilio | Sends and receives check-in text messages | DPA — **[DECIDE: signed?]** |
-| Google Cloud (Firestore) | Stores study data | DPA — **[DECIDE: signed?]** |
-| Vercel | Hosts the website; handles server logs | DPA — **[DECIDE: signed?]** |
-| **[DECIDE]** analytics | Measures site usage | DPA — **[DECIDE]** |
+| Company                  | What they do                              | Agreement                   |
+| ------------------------ | ----------------------------------------- | --------------------------- |
+| Twilio                   | Sends and receives check-in text messages | DPA — **[DECIDE: signed?]** |
+| Google Cloud (Firestore) | Stores study data                         | DPA — **[DECIDE: signed?]** |
+| Vercel                   | Hosts the website; handles server logs    | DPA — **[DECIDE: signed?]** |
+| **[DECIDE]** analytics   | Measures site usage                       | DPA — **[DECIDE]**          |
 
 **No third-party AI service processes your entries.** Transcription is self-hosted. If that ever changes, this page changes first and we ask your permission again.
 

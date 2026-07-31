@@ -4,13 +4,13 @@
 
 They exist so that counsel and the IRB have something concrete to mark up rather than starting from a blank page, and so the decisions behind them are recorded where the code can see them.
 
-| File | Slice | Status |
-| --- | --- | --- |
-| `informed-consent.md` | #32 (SLICE-00-03) | Draft — needs counsel + IRB |
-| `privacy-policy.md` | #33 (SLICE-00-04) | Draft — needs counsel |
-| `retention-schedule.md` | #33 / #34 | Draft — needs counsel |
-| `distress-protocol.md` | #37 (SLICE-00-08) | Draft — needs a named owner |
-| `pre-registration.md` | #38 (SLICE-00-01) | Draft — ready to submit to OSF |
+| File                    | Slice             | Status                         |
+| ----------------------- | ----------------- | ------------------------------ |
+| `informed-consent.md`   | #32 (SLICE-00-03) | Draft — needs counsel + IRB    |
+| `privacy-policy.md`     | #33 (SLICE-00-04) | Draft — needs counsel          |
+| `retention-schedule.md` | #33 / #34         | Draft — needs counsel          |
+| `distress-protocol.md`  | #37 (SLICE-00-08) | Draft — needs a named owner    |
+| `pre-registration.md`   | #38 (SLICE-00-01) | Draft — ready to submit to OSF |
 
 ## Decisions these drafts assume
 

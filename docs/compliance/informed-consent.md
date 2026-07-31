@@ -119,10 +119,10 @@ About your rights as a participant: **[DECIDE]** — the IRB's contact, once #31
 
 You will be asked these separately. You can say yes to some and no to others.
 
-- [ ] **I agree to take part in this study.** I have read this document, I understand what I would be doing, and I know I can stop at any time. *(required)*
-- [ ] **I agree to record voice check-ins**, and I specifically agree to Good Citizens collecting and storing a recording of my voice as described above. *(optional — you can complete the study without this)*
-- [ ] **I agree to receive text messages** with check-in prompts, and I understand these are recurring and that I can reply STOP to end them. *(optional)*
-- [ ] I am 18 or older. *(required)*
+- [ ] **I agree to take part in this study.** I have read this document, I understand what I would be doing, and I know I can stop at any time. _(required)_
+- [ ] **I agree to record voice check-ins**, and I specifically agree to Good Citizens collecting and storing a recording of my voice as described above. _(optional — you can complete the study without this)_
+- [ ] **I agree to receive text messages** with check-in prompts, and I understand these are recurring and that I can reply STOP to end them. _(optional)_
+- [ ] I am 18 or older. _(required)_
 
 Declining takes one click and ends the process with no data kept.
 

@@ -46,7 +46,7 @@ Stated as H1/H0 pairs, per the epics they come from.
 - **H1:** Higher self-reported automation exposure is associated with higher self-reported frustration and with displacement of that frustration onto people rather than tools.
 - **H0:** Self-reported automation exposure shows no meaningful association with frustration intensity or its direction of displacement.
 
-**[DECIDE]** — H1-D is the study's actual research question and is currently the *least* specified of the four, because the epics were written around delivery rather than analysis. Before submitting, state: the exposure measure, the frustration measure, the displacement coding scheme, and what magnitude would count as meaningful. A hypothesis that cannot be disconfirmed by a specific result is not registered, it is merely published.
+**[DECIDE]** — H1-D is the study's actual research question and is currently the _least_ specified of the four, because the epics were written around delivery rather than analysis. Before submitting, state: the exposure measure, the frustration measure, the displacement coding scheme, and what magnitude would count as meaningful. A hypothesis that cannot be disconfirmed by a specific result is not registered, it is merely published.
 
 ## Design
 
