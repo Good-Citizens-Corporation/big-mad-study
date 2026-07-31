@@ -199,9 +199,13 @@ export function buildPublicHomeSlides(
       body: [
         { type: "p", text: "Research shouldn't disappear into a black box." },
         {
+          type: "p",
+          text: "This study is unpaid — we say that up front rather than hinting otherwise. What you get is:",
+        },
+        {
           type: "ul",
           items: [
-            "A small thank-you (details shared after eligibility)",
+            "Your own entries and patterns, in a private view only you can see",
             "Plain-language summaries of patterns we're seeing",
             "Aggregate results once we have enough responses",
             "A transparent look at methods, prompts, and guardrails",
