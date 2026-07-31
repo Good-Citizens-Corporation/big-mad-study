@@ -3,7 +3,6 @@ import type { Slide } from "@/lib/types";
 export const publicHomeSlides: Slide[] = [
   {
     id: "top",
-    emoji: "🧠",
     title: "The Big-Mad Behavioral Study",
     subtitle:
       "A public experiment about what modern work does to mood, patience, and behavior.",
@@ -24,8 +23,60 @@ export const publicHomeSlides: Slide[] = [
     ],
   },
   {
-    id: "",
-    emoji: "🧭",
+    id: "about-the-study",
+    title: "What this study is about",
+    subtitle:
+      "The short version, before you decide whether any of this is worth your time.",
+    body: [
+      {
+        type: "ul",
+        items: [
+          "Who it's for: people whose day is shaped by apps, dashboards, tickets, routes, or metrics — any industry, any comfort level with technology",
+          "Time commitment: a short screener, about a week of 5–10 minute check-ins, and two brief surveys",
+          "What you get back: plain-language summaries of what we find, aggregate results, and an open look at our methods and limitations",
+          "What it costs you: nothing. You can skip days, skip questions, or stop entirely without explaining why",
+        ],
+      },
+      {
+        type: "p",
+        text: "We are not asking you to become a research subject in the intimidating sense. We're asking what your day actually does to you, in your own words, a few minutes at a time.",
+      },
+    ],
+    ctas: [
+      {
+        label: "How we handle data",
+        href: "/methods",
+        variant: "secondary",
+      },
+    ],
+  },
+  {
+    id: "whos-behind-this",
+    title: "Who's behind this",
+    body: [
+      {
+        type: "p",
+        text: "The Big-Mad Behavioral Study is run by Good Citizens, a small team that builds things for people living inside systems they didn't design.",
+      },
+      {
+        type: "p",
+        text: "That's the whole motivation. If work feels heavier than it used to, the usual explanation on offer is that you need better habits, better boundaries, or a better attitude. We think that's worth testing rather than assuming, because the alternative explanation—that the environment changed—is cheaper to believe and harder to prove.",
+      },
+      {
+        type: "p",
+        text: "So we're doing this in the open. The hypothesis, the null it's tested against, and the limitations were written down before any data was collected, and they live in public where you can read them. If the pattern we expect isn't there, that gets published too. A study that can only confirm itself isn't a study.",
+      },
+    ],
+    ctas: [
+      {
+        label: "Good Citizens",
+        href: "https://goodcitizens.us",
+        variant: "secondary",
+      },
+    ],
+  },
+  {
+    id: "what-were-studying",
     title: "What we're studying",
     body: [
       { type: "p", text: "One question:" },
@@ -44,8 +95,7 @@ export const publicHomeSlides: Slide[] = [
     ],
   },
   {
-    id: "",
-    emoji: "🧰",
+    id: "who-this-is-for",
     title: "Who this is for",
     body: [
       {
@@ -67,8 +117,7 @@ export const publicHomeSlides: Slide[] = [
     ],
   },
   {
-    id: "",
-    emoji: "🧩",
+    id: "what-youll-do",
     title: "What you'll do",
     body: [
       { type: "p", text: "If you join, you'll:" },
@@ -85,8 +134,7 @@ export const publicHomeSlides: Slide[] = [
     ctas: [{ label: "Start here", href: "/start", variant: "primary" }],
   },
   {
-    id: "",
-    emoji: "⏱️",
+    id: "time-commitment",
     title: "Time commitment",
     body: [
       { type: "p", text: "Built for people who are already tired." },
@@ -105,8 +153,7 @@ export const publicHomeSlides: Slide[] = [
     ],
   },
   {
-    id: "",
-    emoji: "🎁",
+    id: "what-you-get-back",
     title: "What you get back",
     body: [
       { type: "p", text: "Research shouldn't disappear into a black box." },
@@ -127,7 +174,6 @@ export const publicHomeSlides: Slide[] = [
   },
   {
     id: "how-it-works",
-    emoji: "🗺️",
     title: "How participation works",
     body: [
       {
@@ -143,8 +189,7 @@ export const publicHomeSlides: Slide[] = [
     ctas: [{ label: "Start here", href: "/start", variant: "primary" }],
   },
   {
-    id: "",
-    emoji: "🧪",
+    id: "bias-limitations",
     title: "Bias + limitations",
     body: [
       {
@@ -168,7 +213,6 @@ export const publicHomeSlides: Slide[] = [
   },
   {
     id: "privacy",
-    emoji: "🔒",
     title: "Privacy",
     body: [
       {
@@ -186,10 +230,16 @@ export const publicHomeSlides: Slide[] = [
         text: "If you accidentally include something identifying, tell us and we'll remove it.",
       },
     ],
+    ctas: [
+      {
+        label: "How we handle data",
+        href: "/methods",
+        variant: "secondary",
+      },
+    ],
   },
   {
-    id: "",
-    emoji: "✅",
+    id: "eligibility",
     title: "Eligibility",
     body: [
       {
@@ -212,7 +262,6 @@ export const publicHomeSlides: Slide[] = [
   },
   {
     id: "faq",
-    emoji: "❓",
     title: "FAQ",
     body: [
       {
@@ -230,7 +279,6 @@ export const publicHomeSlides: Slide[] = [
   },
   {
     id: "updates",
-    emoji: "🗞️",
     title: "Updates",
     body: [
       {
@@ -245,7 +293,6 @@ export const publicHomeSlides: Slide[] = [
   },
   {
     id: "contact",
-    emoji: "✉️",
     title: "Contact",
     body: [
       {

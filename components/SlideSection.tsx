@@ -1,21 +1,57 @@
-import Link from "next/link";
-import type { Slide, SlideBodyItem, SlideCTA } from "@/lib/types";
+"use client";
 
-export function SlideSection({ slide }: { slide: Slide }) {
+import Link from "next/link";
+import { useEffect, useRef } from "react";
+import type { Slide, SlideBodyItem, SlideCTA } from "@/lib/types";
+import { track } from "@/lib/telemetry";
+
+export function SlideSection({
+  slide,
+  index,
+}: {
+  slide: Slide;
+  index: number;
+}) {
+  const marker = String(index + 1).padStart(2, "0");
+  const ref = useRef<HTMLElement>(null);
+
+  // landingInfoSectionViewed — fires once per section, the first time it
+  // enters the viewport. Guarded because jsdom has no IntersectionObserver.
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          track("landingInfoSectionViewed", {
+            section_id: slide.id ?? "",
+            section_title: slide.title,
+            position: index + 1,
+          });
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [slide.id, slide.title, index]);
+
   const renderBody = (body: SlideBodyItem[]) => {
     return body.map((item, idx) => {
       if (item.type === "p") {
-        return (
-          <p key={idx} className="text-opacity-90">
-            {item.text}
-          </p>
-        );
+        return <p key={idx}>{item.text}</p>;
       }
       if (item.type === "ul") {
         return (
-          <ul key={idx} className="ml-6 list-disc space-y-2">
+          <ul key={idx} className="space-y-3">
             {item.items?.map((li, liIdx) => (
-              <li key={liIdx}>{li}</li>
+              <li key={liIdx} className="border-t border-hairline pt-3">
+                {li}
+              </li>
             ))}
           </ul>
         );
@@ -24,16 +60,18 @@ export function SlideSection({ slide }: { slide: Slide }) {
     });
   };
 
+  // Two registers only: the outlined pill that carries the next step, and the
+  // quiet rule beneath a word for everything else.
   const renderCTAs = (ctas: SlideCTA[]) => {
     return ctas.map((cta) => (
       <Link
         key={cta.href}
         href={cta.href}
-        className={`rounded-xl px-5 py-3 font-semibold ${
+        className={
           cta.variant === "primary"
-            ? "bg-slate-900 text-white shadow"
-            : "border border-slate-200/70 text-slate-900/90"
-        }`}
+            ? "rounded-full border border-accent px-6 py-3 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent no-underline"
+            : "border-b border-rule pb-[0.15rem] font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft no-underline hover:border-accent hover:text-accent"
+        }
       >
         {cta.label}
       </Link>
@@ -41,27 +79,35 @@ export function SlideSection({ slide }: { slide: Slide }) {
   };
 
   return (
-    <section id={slide.id} className="w-full border-b border-slate-800/50 py-16 md:py-20">
-      <div className="mx-auto flex max-w-3xl flex-col px-6">
-        {slide.emoji && (
-          <div
-            aria-hidden="true"
-            className="mb-6 flex flex-wrap items-end gap-3 text-[clamp(56px,10vw,160px)] leading-none"
-          >
-            <span>{slide.emoji}</span>
-          </div>
-        )}
-        <h2 className="text-4xl font-semibold tracking-tight">{slide.title}</h2>
+    <section
+      ref={ref}
+      id={slide.id}
+      className="w-full scroll-mt-8 border-t border-hairline"
+    >
+      <div className="mx-auto flex max-w-3xl flex-col px-6 py-20 md:py-28">
+        {/* Ordinal only — the heading below carries the meaning, so this is
+            hidden rather than read out as "zero one" before every section. */}
+        <p
+          aria-hidden="true"
+          className="mb-8 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent"
+        >
+          {marker}
+        </p>
+        <h2 className="font-display text-[clamp(2rem,5vw,3rem)] font-normal leading-[1.1]">
+          {slide.title}
+        </h2>
         {slide.subtitle && (
-          <p className="mt-3 text-lg opacity-80">{slide.subtitle}</p>
+          <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+            {slide.subtitle}
+          </p>
         )}
         {slide.body && (
-          <div className="mt-8 space-y-5 text-lg leading-relaxed">
+          <div className="mt-10 space-y-6 text-[1.05rem] leading-[1.7]">
             {renderBody(slide.body)}
           </div>
         )}
         {slide.ctas && slide.ctas.length > 0 && (
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-12 flex flex-wrap items-center gap-8">
             {renderCTAs(slide.ctas)}
           </div>
         )}

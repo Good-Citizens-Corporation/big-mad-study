@@ -10,7 +10,6 @@ export type SlideCTA = {
 
 export type Slide = {
   id?: string;
-  emoji?: string;
   title: string;
   subtitle?: string;
   body?: SlideBodyItem[];
