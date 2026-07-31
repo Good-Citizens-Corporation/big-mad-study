@@ -1,6 +1,9 @@
+import { PageViewTracker } from "../../../components/PageViewTracker";
+
 export default function ParticipantsPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-16 md:py-24">
+      <PageViewTracker event="participantsPageViewed" />
       <section>
         <p className="font-data text-[0.6rem] uppercase tracking-[0.16em] text-ink-soft">
           Participants
