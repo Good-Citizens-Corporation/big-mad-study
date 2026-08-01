@@ -28,9 +28,9 @@ The distinctive question is not how bad work feels but **where the frustration g
 
 - **H1:** Within the same participant, moments involving automated or algorithmic systems are more likely to be displaced onto people (other people, or the self) than that participant's moments not involving such systems.
 - **H0:** Displacement destination is independent of system involvement within person.
-- **Meaningful magnitude:** odds ratio **≥ 1.5** for the within-person fixed effect. Below that, an effect of this kind is unlikely to be distinguishable from residual moment-level confounding (time of day, workload spikes) in an observational design of this size — so anything smaller is reported as no meaningful association *regardless of statistical significance*.
+- **Meaningful magnitude:** odds ratio **≥ 1.5** for the within-person fixed effect. Below that, an effect of this kind is unlikely to be distinguishable from residual moment-level confounding (time of day, workload spikes) in an observational design of this size — so anything smaller is reported as no meaningful association _regardless of statistical significance_.
 
-The comparison is within-person by design: each participant serves as their own control, so stable confounds — profession, temperament, income, the particular week — are absorbed by the person-level intercept. This is also the analysis most robust to the study's unpaid opt-in sampling (see Sampling): a motivated sample biases *who enrolls*, not the contrast between one person's system-involved and non-system moments.
+The comparison is within-person by design: each participant serves as their own control, so stable confounds — profession, temperament, income, the particular week — are absorbed by the person-level intercept. This is also the analysis most robust to the study's unpaid opt-in sampling (see Sampling): a motivated sample biases _who enrolls_, not the contrast between one person's system-involved and non-system moments.
 
 ### Secondary — H2: intensity
 
@@ -53,9 +53,9 @@ Carried from the delivery epics and evaluated operationally, not in the scientif
 ## Operational definitions
 
 - **System involvement** (moment-level predictor) — whether an app, dashboard, metric, algorithm, or automated system was part of the moment. **Coded from the narrative**, not asked: asking would prime participants toward the hypothesis. Two independent coders, blind to exposure score and cohort, working from a written codebook on transcripts (never audio); disagreements resolved by a third. Coders code a common **20% overlap sample**; Cohen's **κ ≥ 0.70 required** on that sample before the variable is used at all — below the floor, the primary analysis is reported as failed rather than patched. Unintelligible entries are flagged uncodable, not guessed.
-- **Displacement destination** (moment-level outcome) — participant self-report, forced choice at each check-in: *the tool / other people / myself / nowhere*, with the tie-break instruction "pick where **most** of it went." For the primary analysis the outcome is **binary: person-directed** (other people or self) **vs not** (tool or nowhere). Categories are frozen only after the disclosed pilot (see Pilot).
+- **Displacement destination** (moment-level outcome) — participant self-report, forced choice at each check-in: _the tool / other people / myself / nowhere_, with the tie-break instruction "pick where **most** of it went." For the primary analysis the outcome is **binary: person-directed** (other people or self) **vs not** (tool or nowhere). Categories are frozen only after the disclosed pilot (see Pilot).
 - **Frustration intensity** (moment-level, secondary) — single self-rating 0–10 per check-in, verbally anchored in every prompt: "0 = barely registered, 10 = as worked up as you get."
-- **Recency** (moment-level covariate/screen) — "when did this happen?": *just now / within the last hour / earlier today / before today*.
+- **Recency** (moment-level covariate/screen) — "when did this happen?": _just now / within the last hour / earlier today / before today_.
 - **Exposure** (person-level) — the screener's continuous automation-exposure score. The `heavy_ai` / `light_ai` / `low_ai` labels derived from it are used for recruitment stratification and readable reporting only; **analysis uses the continuous score**, because trichotomizing a continuous measure discards information.
 
 ## Design
@@ -67,7 +67,7 @@ Carried from the delivery epics and evaluated operationally, not in the scientif
 
 ## Pilot (design phase, disclosed)
 
-Before registration of the final instrument wording, a pilot of **10–15 people from the authors' extended network, 2–3 days each, using the real SMS flow** finalizes the destination response options. The pilot includes a fifth option — *somewhere else (say where)* — with free text; the four categories are frozen only if ≥ 90% of pilot entries land cleanly in them, and revised before freezing if not. **Pilot data is design data:** it is excluded from all analyses and no pilot participant may enroll in the study proper.
+Before registration of the final instrument wording, a pilot of **10–15 people from the authors' extended network, 2–3 days each, using the real SMS flow** finalizes the destination response options. The pilot includes a fifth option — _somewhere else (say where)_ — with free text; the four categories are frozen only if ≥ 90% of pilot entries land cleanly in them, and revised before freezing if not. **Pilot data is design data:** it is excluded from all analyses and no pilot participant may enroll in the study proper.
 
 ## Sampling
 
@@ -75,7 +75,7 @@ Before registration of the final instrument wording, a pilot of **10–15 people
 - **Recruitment:** Public and **unpaid**, via LinkedIn and extended network initially. **[DECIDE]** — additional channels; channel choice materially affects sample composition.
 - **Compensation:** None. Participants receive access to their own entries and patterns, and the published findings — no payment, gift, or lottery.
 - **What unpaid opt-in does to the sample, registered rather than discovered later:** an unpaid public recruit selects for people who already have feelings about work and technology. This is the central sampling property of the study, not a caveat. It is the reason the primary hypothesis is within-person, and the reason no estimate in any report will be framed as population prevalence.
-- **Expected attrition — and its direction:** unpaid daily participation loses people mid-week, and in a frustration study attrition is plausibly *caused by* the constructs under measurement — the missingness is likely informative (MNAR), biasing completer summaries in unknown direction. We register the expectation, report enrollment-vs-completion characteristics by exposure score, and do not impute.
+- **Expected attrition — and its direction:** unpaid daily participation loses people mid-week, and in a frustration study attrition is plausibly _caused by_ the constructs under measurement — the missingness is likely informative (MNAR), biasing completer summaries in unknown direction. We register the expectation, report enrollment-vs-completion characteristics by exposure score, and do not impute.
 - **Eligibility:** 18+, able to complete voice or SMS check-ins for ~a week, English for this pilot wave.
 - **Stopping rule:** recruitment closes at **90 enrolled participants or 6 weeks from launch, whichever comes first**, and is not reopened to chase a result. Analysis begins only after the final enrolled participant's 7-day window closes, and runs once.
 
@@ -96,7 +96,7 @@ Before registration of the final instrument wording, a pilot of **10–15 people
 - **Random slope:** we attempt `(1 + system_involved | participant)`; if it fails to converge or the slope variance is degenerate (likely at ~5–7 entries per person), we fall back to the random-intercept model. **This fallback is pre-declared here** so a convergence-driven model change cannot be a post-hoc choice.
 - **Reported:** fixed-effect odds ratio with 95% CI, judged against OR ≥ 1.5; ICC of the empty model; number of participants contributing within-person variance.
 - **Power gate:** only participants with at least one system-involved and one non-system entry inform the contrast. If fewer than **30 participants** have such variance, the primary analysis is reported as underpowered and descriptive only.
-- **Sensitivity checks (pre-declared):** (a) primary model on entries marked *just now / within the last hour* only; (b) primary model on a one-entry-per-day subsample (first entry per day); (c) primary model with time-of-day and recency as covariates.
+- **Sensitivity checks (pre-declared):** (a) primary model on entries marked _just now / within the last hour_ only; (b) primary model on a one-entry-per-day subsample (first entry per day); (c) primary model with time-of-day and recency as covariates.
 
 **Secondary (H2).** Within-person intensity contrast: multilevel linear model `intensity ~ system_involved + (1 | participant)`, same fallback logic, judged against the ≥ 0.5-point threshold.
 
@@ -104,7 +104,7 @@ Before registration of the final instrument wording, a pilot of **10–15 people
 
 **Descriptive.** Cohort-level tables of intensity and destination. If any inferential between-cohort test is reported at all it is labelled descriptive/secondary, uses the rules previously drafted (Kruskal–Wallis / χ² with the pre-declared `none/unclear` collapse for thin cells), and is gated: fewer than 15 completers per cohort ⇒ tables only, no tests.
 
-**Entry inclusion.** Entries marked *before today* are excluded from all confirmatory analyses and counted separately — same-day recall for salient discrete events is adequate for this design's claims; cross-day recall is not. No person-level exclusion applies to the primary model except the within-person-variance requirement above. "Completer" (≥ 3 check-in days) is a descriptive label and a gate for the secondary cohort analyses only.
+**Entry inclusion.** Entries marked _before today_ are excluded from all confirmatory analyses and counted separately — same-day recall for salient discrete events is adequate for this design's claims; cross-day recall is not. No person-level exclusion applies to the primary model except the within-person-variance requirement above. "Completer" (≥ 3 check-in days) is a descriptive label and a gate for the secondary cohort analyses only.
 
 **Coding.** As specified in Operational definitions: independent, blind, transcript-only, κ ≥ 0.70 on a 20% overlap sample, third-coder resolution, uncodable flagged not guessed.
 
@@ -117,7 +117,7 @@ Before registration of the final instrument wording, a pilot of **10–15 people
 ## Known limitations, registered in advance
 
 - **Self-selection is the central sampling property:** unpaid public opt-in selects for people who already feel something about the topic. Handled by making the primary hypothesis within-person; prevalence claims are out of scope entirely.
-- **Noticing bias:** participants report the moments they notice. If system-involved frustration is more *memorable* rather than more common or more displaced, the within-person contrast inherits that. This is a real, unremovable limitation of event-contingent sampling and we register it plainly.
+- **Noticing bias:** participants report the moments they notice. If system-involved frustration is more _memorable_ rather than more common or more displaced, the within-person contrast inherits that. This is a real, unremovable limitation of event-contingent sampling and we register it plainly.
 - **Moment-level confounding:** the within-person design absorbs stable confounds but not momentary ones — a system-involved moment may also be a busier moment. The design supports within-person association, not moment-level causation.
 - **Informative attrition:** dropout is plausibly correlated with the constructs under study; completer analyses are biased in unknown direction.
 - **Measurement reactivity:** a week of logging frustration may itself change frustration; reactivity in ESM is typically small but nonzero.
