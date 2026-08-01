@@ -73,15 +73,16 @@ describe("beacon sink", () => {
     expect(calls).toBe(2); // still trying; page never saw an error
   });
 
-  it("no longer buffers to the window once installed", () => {
+  it("keeps mirroring to the window buffer once installed", () => {
     vi.stubGlobal("fetch", () =>
       Promise.resolve(new Response(null, { status: 204 })),
     );
     installBeaconSink({ flushMs: 1000 });
     track("landingViewed");
 
-    // recordedEvents reads the window buffer; a configured sink bypasses it.
-    expect(recordedEvents()).toHaveLength(0);
+    // The window buffer is the observability seam the E2E suite reads; the
+    // sink adds transport, it must not remove visibility.
+    expect(recordedEvents()).toHaveLength(1);
   });
 
   it("flushTelemetry ships immediately for page-hide moments", () => {
