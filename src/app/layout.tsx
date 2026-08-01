@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { HeaderVariantProvider } from "./hooks/HeaderVariantProvider";
+import { TelemetryProvider } from "../../components/TelemetryProvider";
 import { LayoutHeader } from "./layout-header";
 import "./globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable} bg-paper text-ink`}
       >
+        <TelemetryProvider />
         <HeaderVariantProvider>
           <div className="flex min-h-screen flex-col">
             <LayoutHeader navLinks={navLinks} />
