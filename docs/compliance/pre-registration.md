@@ -14,7 +14,7 @@ The Big-Mad Behavioral Study: automation exposure, frustration, and behavioral d
 
 ## Authors
 
-**[DECIDE]** — names, affiliations, ORCIDs. Good Citizens Corporation.
+Bob Duebelbeis, Good Citizens Corporation. **[DECIDE]** — ORCID (free at orcid.org; OSF asks for it and reviewers expect it).
 
 ## Description
 

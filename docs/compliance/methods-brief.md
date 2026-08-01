@@ -30,17 +30,17 @@ A screener assigns each participant to `heavy_ai` / `light_ai` / `low_ai` by det
 
 Each check-in captures, on top of the free narrative:
 
-| Variable | Method | Rationale |
-| --- | --- | --- |
-| **Destination** — where the frustration landed | Self-report, forced choice: *the tool / other people / myself / nowhere* | Only the participant knows where it landed; coding it from text infers expression, not experience |
-| **Intensity** — how much the moment got to them | Self-report, single item 0–10 | Felt intensity is the construct (see §5); single-item momentary ratings are standard in ESM, with known reliability limits we will register |
-| **System involvement** — was an app/metric/algorithm part of the moment | **Coded from the narrative** by two coders blind to exposure group; κ ≥ 0.70 floor | Objective enough to code reliably; *asking* it would prime participants toward the hypothesis |
+| Variable                                                                | Method                                                                             | Rationale                                                                                                                                   |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Destination** — where the frustration landed                          | Self-report, forced choice: _the tool / other people / myself / nowhere_           | Only the participant knows where it landed; coding it from text infers expression, not experience                                           |
+| **Intensity** — how much the moment got to them                         | Self-report, single item 0–10                                                      | Felt intensity is the construct (see §5); single-item momentary ratings are standard in ESM, with known reliability limits we will register |
+| **System involvement** — was an app/metric/algorithm part of the moment | **Coded from the narrative** by two coders blind to exposure group; κ ≥ 0.70 floor | Objective enough to code reliably; _asking_ it would prime participants toward the hypothesis                                               |
 
 The split rule: subjective states are self-reported; observable features are coded. Burden added per entry: one word and one number.
 
 **Definitional choice made:** frustration is **felt intensity in the moment** — not accumulated strain (which validated scales like PSS measure), not expressed intensity (which coders could rate). This choice eliminated end-of-day ratings (retrospective aggregate; peak-end bias is already in our registered limitations) and coder-rated intensity (rater error would enter the outcome variable). If the definition itself is wrong, that supersedes everything downstream — see question 1.
 
-**Unresolved within this plan:** where the 0–10 sits in a voice note (leading number parses reliably but may prime the narrative; trailing number preserves spontaneity but parses worse), and how to bound the gap between moment and report — an entry recorded six hours later is recalled intensity wearing a momentary label. Candidate: an elapsed-time item (*just now / within an hour / earlier today / older*) used as covariate and exclusion screen. Question 4.
+**Unresolved within this plan:** where the 0–10 sits in a voice note (leading number parses reliably but may prime the narrative; trailing number preserves spontaneity but parses worse), and how to bound the gap between moment and report — an entry recorded six hours later is recalled intensity wearing a momentary label. Candidate: an elapsed-time item (_just now / within an hour / earlier today / older_) used as covariate and exclusion screen. Question 4.
 
 ## 5. The fork we most need judged: two candidate primary hypotheses
 
@@ -56,9 +56,9 @@ Honest assessment: underpowered at ~20/cohort, and confounded — cohorts differ
 > H1: Within the same participant, system-involved moments are more likely to be displaced onto other people or the self than that participant's non-system moments.
 > H0: Destination is independent of system involvement within person.
 
-Rationale: the comparison moves inside the person, so every stable confound (job, temperament, week) is controlled by design; the effective N becomes entries (~300–600) rather than participants; and an angrier-than-average opt-in sample biases *who enrolls*, not the within-person contrast. Cohort demotes to a moderator (is the within-person effect larger under heavy exposure?).
+Rationale: the comparison moves inside the person, so every stable confound (job, temperament, week) is controlled by design; the effective N becomes entries (~300–600) rather than participants; and an angrier-than-average opt-in sample biases _who enrolls_, not the within-person contrast. Cohort demotes to a moderator (is the within-person effect larger under heavy exposure?).
 
-What we know we'd be taking on: entries nest within persons, so the drafted χ²/KW tests are no longer the right analysis — presumably a multilevel logistic (destination ~ system-involvement + (1|participant)), which we are not confident specifying unaided. There is also a selection concern specific to B: participants report the moments they *notice*, and if system-involved frustration is more memorable rather than more common or more displaced, the within-person contrast inherits that. Signal-contingent prompting would address it but violates the burden promises in §2.
+What we know we'd be taking on: entries nest within persons, so the drafted χ²/KW tests are no longer the right analysis — presumably a multilevel logistic (destination ~ system-involvement + (1|participant)), which we are not confident specifying unaided. There is also a selection concern specific to B: participants report the moments they _notice_, and if system-involved frustration is more memorable rather than more common or more displaced, the within-person contrast inherits that. Signal-contingent prompting would address it but violates the burden promises in §2.
 
 ## 6. The questions
 
@@ -66,11 +66,11 @@ What we know we'd be taking on: entries nest within persons, so the drafted χ²
 2. **Primary hypothesis:** A or B (§5)? If B, what is the correct minimal model given ~60–90 participants × ~5–7 entries, and what should be declared as the effect threshold in place of Cramér's V ≥ 0.2?
 3. **The cohort variable:** Given its confounds, is `heavy/light/low` usable as a moderator, or should exposure be measured differently (or continuously) at the screener?
 4. **Momentary validity:** Is an elapsed-time item with a declared exclusion threshold an adequate answer to recall latency, or is the moment-level claim untenable without prompting — in which case, what is the least-burden prompting scheme that preserves it?
-5. **Destination categories:** Are *tool / other people / myself / nowhere* exhaustive and non-overlapping enough for a forced choice, or does this need a pilot-and-revise step before registration?
+5. **Destination categories:** Are _tool / other people / myself / nowhere_ exhaustive and non-overlapping enough for a forced choice, or does this need a pilot-and-revise step before registration?
 6. **Numbers needing an owner:** κ ≥ 0.70 floor; ≥ 0.5-point intensity threshold; < 3 check-in-day exclusion; 90-participants-or-6-weeks stopping rule; "< 15 completers per cohort ⇒ descriptive only." Each was chosen as defensible-sounding rather than derived. Keep, replace, or delete?
 7. **What did we not ask that we should have?**
 
-## 7. What we are *not* asking you to review
+## 7. What we are _not_ asking you to review
 
 Ethics and consent (an independent IRB submission is in preparation, with a separate biometric-consent track for voice), privacy/legal posture, recruitment copy, or the software. If something in those areas alarms you in passing, we want to hear it — but §6 is the ask.
 
@@ -81,4 +81,4 @@ Ethics and consent (an independent IRB submission is in preparation, with a sepa
 - Registered-in-advance limitations: opt-in self-selection (now the central sampling property — the study is unpaid), public framing primes attention, recall favors extremes, associations not causation, self-report throughout
 - Consent, privacy, retention, and distress-protocol drafts: `docs/compliance/`
 
-Contact: **[DECIDE — your name and a real address before this leaves the building]**
+Contact: **Bob Duebelbeis** · bob@goodcitizens.us
