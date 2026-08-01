@@ -83,7 +83,7 @@ If data is exposed, we will notify affected participants within **[DECIDE]** and
 
 ## Contact
 
-**[DECIDE]** — a monitored address.
+bigmad@goodcitizens.us — monitored by a human. If you email it, a person reads it.
 
 ---
 

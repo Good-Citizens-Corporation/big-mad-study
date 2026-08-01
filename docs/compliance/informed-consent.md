@@ -8,7 +8,7 @@
 ## Consent to take part in The Big-Mad Behavioral Study
 
 **Run by:** Good Citizens Corporation
-**Contact:** **[DECIDE]** — a monitored address a participant can actually reach a human at
+**Contact:** bigmad@goodcitizens.us — monitored by a human
 **Version:** DRAFT-0 · **[DECIDE]** date
 
 Please read this before you answer any questions. You are agreeing to something specific, and you should know exactly what.
@@ -104,13 +104,13 @@ If you participate, you will be able to see your own entries and your own patter
 
 ### Getting your data deleted
 
-Email **[DECIDE]** and ask. We will delete your entries and your contact information within **[DECIDE]** days and confirm when it is done. You do not need to give a reason.
+Email bigmad@goodcitizens.us and ask. We will delete your entries and your contact information within **[DECIDE]** days and confirm when it is done. You do not need to give a reason.
 
 Data already included in published aggregate summaries cannot be pulled back out, because it is no longer separable from anyone else's. Everything else goes.
 
 ### Questions
 
-About the study: **[DECIDE]**
+About the study: bigmad@goodcitizens.us
 About your rights as a participant: **[DECIDE]** — the IRB's contact, once #31 completes. An IRB-reviewed protocol must give participants an independent route to complain.
 
 ---
