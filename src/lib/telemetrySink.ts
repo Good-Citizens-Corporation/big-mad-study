@@ -42,6 +42,12 @@ export function installBeaconSink({ flushMs = 10_000 } = {}): void {
   pending = [];
   configureTelemetry((event) => {
     pending.push(event);
+    // Mirror to the window buffer: it is the observability seam the E2E
+    // suite and any debugging session read. The sink adds transport; it
+    // must not remove visibility. (Replacing the buffer outright is what
+    // broke BM-E2E-02/04 on the first attempt.)
+    window.__bmTelemetry ??= [];
+    window.__bmTelemetry.push(event);
   });
   timer = setInterval(ship, flushMs);
 }
