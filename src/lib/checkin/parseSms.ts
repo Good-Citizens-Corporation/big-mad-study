@@ -34,7 +34,10 @@ const DESTINATION_PATTERNS: [RegExp, ConcreteDestination][] = [
 ];
 
 const RECENCY_PATTERNS: [RegExp, Exclude<Recency, "skipped">][] = [
-  [/(just now|right now|a (minute|moment|second) ago|minutes ago)/i, "just_now"],
+  [
+    /(just now|right now|a (minute|moment|second) ago|minutes ago)/i,
+    "just_now",
+  ],
   [/(within the (last )?hour|an hour ago|past hour)/i, "within_hour"],
   [/(earlier today|this (morning|afternoon)|today)/i, "earlier_today"],
   [/(yesterday|last (night|week)|days? ago|before today)/i, "before_today"],
@@ -47,16 +50,10 @@ const DELIM = "[,.;\\u2014\\u2013-]";
  * delimiter, followed by end-of-message or a delimiter.
  */
 function delimited(inner: string): RegExp {
-  return new RegExp(
-    `(?:^|${DELIM})\\s*(?:${inner})\\s*(?=$|${DELIM})`,
-    "i",
-  );
+  return new RegExp(`(?:^|${DELIM})\\s*(?:${inner})\\s*(?=$|${DELIM})`, "i");
 }
 
-function claim(
-  text: string,
-  inner: string,
-): { found: boolean; rest: string } {
+function claim(text: string, inner: string): { found: boolean; rest: string } {
   const match = text.match(delimited(inner));
   if (!match) return { found: false, rest: text };
   return { found: true, rest: text.replace(match[0], " ") };

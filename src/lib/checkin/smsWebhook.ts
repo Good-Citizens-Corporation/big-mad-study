@@ -49,7 +49,8 @@ export async function handleInboundSms(
 ): Promise<string> {
   const hashedParticipantId = deps.hashPhone(message.From);
 
-  const consent: ConsentRecord | null = await deps.findConsent(hashedParticipantId);
+  const consent: ConsentRecord | null =
+    await deps.findConsent(hashedParticipantId);
   if (!consent || !consent.scopes.study) {
     deps.logRefusal("sms_from_unconsented_number");
     return REPLIES.notEnrolled;

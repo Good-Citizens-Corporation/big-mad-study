@@ -102,7 +102,10 @@ describe("SLICE-04-02 inbound SMS", () => {
 
   it("marks entries as pilot when the flow runs in pilot mode", async () => {
     const pilotDeps = { ...h.deps, pilot: true };
-    await handleInboundSms(fixture("5, them, just now, pilot story"), pilotDeps);
+    await handleInboundSms(
+      fixture("5, them, just now, pilot story"),
+      pilotDeps,
+    );
     expect(h.stored[0].pilot).toBe(true);
   });
 
