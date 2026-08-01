@@ -8,7 +8,7 @@
 ## Consent to take part in The Big-Mad Behavioral Study
 
 **Run by:** Good Citizens Corporation
-**Contact:** **[DECIDE]** — a monitored address a participant can actually reach a human at
+**Contact:** bigmad@goodcitizens.us — monitored by a human
 **Version:** DRAFT-0 · **[DECIDE]** date
 
 Please read this before you answer any questions. You are agreeing to something specific, and you should know exactly what.
@@ -29,9 +29,7 @@ Most days this is 5–10 minutes. There are no essays and no homework.
 
 ### This is voluntary, and you can stop
 
-You can skip a day. You can skip any question. You can stop entirely, at any point, without telling us why. Nothing bad happens if you do, and it does not affect any compensation you have already earned.
-
-**[DECIDE]** — state plainly whether partial participation still earns partial compensation. Vagueness here is a pressure tactic even when it isn't meant as one.
+You can skip a day. You can skip any question. You can stop entirely, at any point, without telling us why. Nothing bad happens if you do. This study is unpaid, so there is no reward to lose — and stopping does not affect your access to your own entries.
 
 ### What we collect
 
@@ -46,7 +44,7 @@ You can skip a day. You can skip any question. You can stop entirely, at any poi
 
 Voice recordings are treated differently under the law, because a recording of your voice can identify you the way a fingerprint can.
 
-- **You do not have to record anything.** You can complete this entire study using text only, and you get the same compensation.
+- **You do not have to record anything.** You can complete this entire study using text only, with exactly the same standing in the study.
 - If you do record, you are giving separate, specific permission for us to collect and store a recording of your voice.
 - Recordings are transcribed **on our own computers**, using software we run ourselves. Your audio is not sent to any outside company for transcription.
 - We will delete the original audio recordings after **[DECIDE]**. After that only the written transcript remains.
@@ -96,7 +94,9 @@ You may find it useful to notice your own patterns. Beyond that, we are honest t
 
 ### Compensation
 
-**[DECIDE]** — amount, form, and when it is earned. US participants paid over $600 in a year may require tax reporting. Say the real number here; "a small thank-you" is not consent-grade detail.
+There is none. Taking part in this study is unpaid, and we would rather say that plainly than imply a reward that doesn't exist.
+
+If you participate, you will be able to see your own entries and your own patterns in a private view, and you'll get the same plain-language findings we publish for everyone. That is access to your own data, not payment — we're telling you about it so you know what participating looks like, not to talk you into it.
 
 ### How long we keep things
 
@@ -104,13 +104,13 @@ You may find it useful to notice your own patterns. Beyond that, we are honest t
 
 ### Getting your data deleted
 
-Email **[DECIDE]** and ask. We will delete your entries and your contact information within **[DECIDE]** days and confirm when it is done. You do not need to give a reason.
+Email bigmad@goodcitizens.us and ask. We will delete your entries and your contact information within **[DECIDE]** days and confirm when it is done. You do not need to give a reason.
 
 Data already included in published aggregate summaries cannot be pulled back out, because it is no longer separable from anyone else's. Everything else goes.
 
 ### Questions
 
-About the study: **[DECIDE]**
+About the study: bigmad@goodcitizens.us
 About your rights as a participant: **[DECIDE]** — the IRB's contact, once #31 completes. An IRB-reviewed protocol must give participants an independent route to complain.
 
 ---

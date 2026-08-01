@@ -14,14 +14,14 @@ The rest of this page is the detail behind those four claims.
 
 ## What we collect, and why
 
-| What                                                 | Why                                           | Kept for                                              |
-| ---------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------- |
-| Screener answers (work context, automation exposure) | To assign a study cohort                      | **[DECIDE]**                                          |
-| Check-in entries (text)                              | The research data itself                      | **[DECIDE]**                                          |
-| Check-in entries (audio, optional)                   | The research data itself                      | Audio deleted after **[DECIDE]**; transcript retained |
-| Survey answers (pre and post)                        | To measure change over the week               | **[DECIDE]**                                          |
-| Contact details (email and/or phone)                 | To send check-in prompts and pay compensation | Deleted at study end + **[DECIDE]**                   |
-| Website analytics                                    | To see whether the page explains itself       | **[DECIDE]**                                          |
+| What                                                 | Why                                     | Kept for                                              |
+| ---------------------------------------------------- | --------------------------------------- | ----------------------------------------------------- |
+| Screener answers (work context, automation exposure) | To assign a study cohort                | **[DECIDE]**                                          |
+| Check-in entries (text)                              | The research data itself                | **[DECIDE]**                                          |
+| Check-in entries (audio, optional)                   | The research data itself                | Audio deleted after **[DECIDE]**; transcript retained |
+| Survey answers (pre and post)                        | To measure change over the week         | **[DECIDE]**                                          |
+| Contact details (email and/or phone)                 | To send check-in prompts                | Deleted at study end + **[DECIDE]**                   |
+| Website analytics                                    | To see whether the page explains itself | **[DECIDE]**                                          |
 
 We do **not** collect your name at work, your employer, your job title in identifiable form, your location beyond **[DECIDE]**, or anything about your health beyond what you volunteer in an entry.
 
@@ -33,7 +33,7 @@ If you opt into voice check-ins, we collect a recording of your voice. Several U
 - **Transcription runs on our own hardware.** We use Whisper, an open-source speech-to-text model, running on machines we control. Your audio is not uploaded to any transcription service.
 - We delete original audio after **[DECIDE]**. Transcripts, stripped of identifying detail, are kept for the research.
 - **We do not sell, lease, trade, or otherwise profit from biometric data.** Not now, not later, not as part of any acquisition.
-- Voice is always optional and never a condition of participation or compensation.
+- Voice is always optional and never a condition of participation. (The study is unpaid; there is no compensation to condition.)
 
 ## Who else touches your data
 
@@ -83,7 +83,7 @@ If data is exposed, we will notify affected participants within **[DECIDE]** and
 
 ## Contact
 
-**[DECIDE]** — a monitored address.
+bigmad@goodcitizens.us — monitored by a human. If you email it, a person reads it.
 
 ---
 

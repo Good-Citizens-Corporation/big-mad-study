@@ -1,4 +1,6 @@
 import { PageViewTracker } from "../../../components/PageViewTracker";
+import { RegistrationNotice } from "../../../components/RegistrationNotice";
+import { preRegistration } from "@/content/registration";
 
 export default function MethodsPage() {
   return (
@@ -37,6 +39,7 @@ export default function MethodsPage() {
           </article>
         </div>
       </section>
+      <RegistrationNotice registration={preRegistration} />
     </main>
   );
 }
