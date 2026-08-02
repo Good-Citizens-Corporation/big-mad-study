@@ -47,7 +47,7 @@ export function RegistrationNotice({
           limitations are written down in public on our issue tracker, but that
           is our own word with our own timestamps. They will be filed with an
           independent registry before we collect any data, and this page will
-          carry the DOI when they are.
+          carry its permanent link when they are.
         </p>
       )}
     </section>

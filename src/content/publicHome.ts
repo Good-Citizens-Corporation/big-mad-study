@@ -1,5 +1,6 @@
 import type { Slide } from "@/lib/types";
 import { preRegistration } from "./registration";
+import { sectionFigures } from "./geometry";
 
 /**
  * A frozen, timestamped registration issued by an independent registry.
@@ -298,7 +299,7 @@ export function buildPublicHomeSlides(
           type: "ul",
           items: [
             "18+",
-            "Can do voice or SMS check-ins for about a week",
+            "Can send a voice note or a text for about a week",
             "English for this pilot (current constraint)",
           ],
         },
@@ -309,15 +310,15 @@ export function buildPublicHomeSlides(
       ],
     },
     {
-      id: "faq",
-      title: "FAQ",
+      id: "questions",
+      title: "Questions people ask",
       body: [
         {
           type: "ul",
           items: [
             "Is this therapy? → No. It's research.",
             "Do I have to talk about AI? → No. Talk about what actually happened.",
-            "Can I do SMS only? → Yes. Voice is encouraged, not required.",
+            "Can I just text? → Yes. Voice notes are encouraged, not required.",
             "What if I miss days? → Normal. Participate when you can.",
             "Can I quit? → Any time. No explanation required.",
             "Will this affect my job? → We don't contact employers. Nothing is shared with employers.",
@@ -356,4 +357,11 @@ export function buildPublicHomeSlides(
   ];
 }
 
-export const publicHomeSlides: Slide[] = buildPublicHomeSlides(preRegistration);
+export const publicHomeSlides: Slide[] = buildPublicHomeSlides(
+  preRegistration,
+).map((slide) => ({
+  ...slide,
+  // The figure is looked up rather than hand-set per slide, so a section
+  // cannot drift away from the figure registered as marking it.
+  figure: slide.id ? sectionFigures[slide.id] : undefined,
+}));

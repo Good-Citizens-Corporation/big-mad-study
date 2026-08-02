@@ -10,7 +10,7 @@ export async function TopNav() {
     { label: "Home", href: `${anchorBase}#top` },
     { label: "How it works", href: `${anchorBase}#how-it-works` },
     { label: "Privacy", href: `${anchorBase}#privacy` },
-    { label: "FAQ", href: `${anchorBase}#faq` },
+    { label: "Questions", href: `${anchorBase}#questions` },
     { label: "Updates", href: `${anchorBase}#updates` },
     { label: "Contact", href: `${anchorBase}#contact` },
   ];

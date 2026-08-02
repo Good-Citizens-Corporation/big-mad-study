@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import type { Slide, SlideBodyItem, SlideCTA } from "@/lib/types";
 import { track } from "@/lib/telemetry";
 import { StartScreenerLink } from "./StartScreenerLink";
+import { Divider } from "./Divider";
 
 export function SlideSection({
   slide,
@@ -99,35 +100,35 @@ export function SlideSection({
   };
 
   return (
-    <section
-      ref={ref}
-      id={slide.id}
-      className="w-full scroll-mt-8 border-t border-hairline"
-    >
-      <div className="mx-auto flex max-w-3xl flex-col px-6 py-20 md:py-28">
+    <section ref={ref} id={slide.id} className="w-full scroll-mt-8">
+      <div className="mx-auto max-w-3xl px-6">
+        {slide.figure ? (
+          <Divider figure={slide.figure} />
+        ) : (
+          <div className="h-px w-full bg-hairline" />
+        )}
+      </div>
+      {/* Set as a type specimen: ordinal, title, lead, running text — each at
+          a named step of the √2 scale, each at the measure its role wants.
+          No font-size, gap, or max-width here is hand-picked; every one is
+          drawn from the proportional system in globals.css. */}
+      <div className="specimen mx-auto max-w-3xl px-6 py-rhythm-8 md:py-rhythm-9">
         {/* Ordinal only — the heading below carries the meaning, so this is
             hidden rather than read out as "zero one" before every section. */}
-        <p
-          aria-hidden="true"
-          className="mb-8 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent"
-        >
+        <p aria-hidden="true" className="specimen-ordinal">
           {marker}
         </p>
-        <Heading className="font-display text-[clamp(2rem,5vw,3rem)] font-normal leading-[1.1]">
-          {slide.title}
-        </Heading>
-        {slide.subtitle && (
-          <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            {slide.subtitle}
-          </p>
-        )}
+        <div className="flow-rhythm-4">
+          <Heading className="specimen-title">{slide.title}</Heading>
+          {slide.subtitle && <p className="specimen-lead">{slide.subtitle}</p>}
+        </div>
         {slide.body && (
-          <div className="mt-10 space-y-6 text-[1.05rem] leading-[1.7]">
+          <div className="specimen-body flow-rhythm-5">
             {renderBody(slide.body)}
           </div>
         )}
         {slide.ctas && slide.ctas.length > 0 && (
-          <div className="mt-12 flex flex-wrap items-center gap-8">
+          <div className="flex flex-wrap items-center gap-rhythm-6">
             {renderCTAs(slide.ctas)}
           </div>
         )}

@@ -46,6 +46,70 @@
   --signal-green: #008700;
   --signal-red: #e31c00;
 
+  /* ── Proportion ────────────────────────────────────────────────────────────
+
+     Three ratios, all constructible from the same figures with compass and
+     straightedge — which is the honest form of the claim. They are related by
+     construction, not chosen by taste:
+
+       √2  the diagonal of a square
+       √3  the height of a vesica piscis whose circles have unit radius
+       φ   the diagonal of a double square, less half its short side
+
+     √2 governs the type scale, for a reason that is testable rather than
+     mystical: it is the only ratio preserved under halving, which is why ISO
+     216 paper folds A4 → A5 without changing shape, and why every second step
+     of the scale lands on an exact doubling. 1 → 1.414 → 2 → 2.828 → 4.
+     Octaves fall on integers; nothing drifts.
+
+     φ governs spatial proportion — frame ratios and the relation of measure
+     to margin — where its self-similar property (φ² = φ + 1) means a division
+     leaves a rectangle of the same shape.
+  */
+  --ratio-diagonal: 1.4142136; /* √2 — square's diagonal */
+  --ratio-vesica: 1.7320508; /* √3 — vesica piscis height */
+  --ratio-golden: 1.618034; /* φ — double-square diagonal */
+
+  /* ── Type scale ────────────────────────────────────────────────────────────
+     Geometric on √2 from a 1rem root. The root is 1rem and not smaller
+     because 16px is the floor below which mobile browsers zoom on focus —
+     a human-factors constraint, not a preference. */
+  --step-data: 0.7071rem; /* root ÷ √2   — labels, ordinals, metadata */
+  --step-body: 1rem; /* root         — running text */
+  --step-lead: 1.4142rem; /* root × √2   — standfirst, subtitles */
+  --step-title: 2rem; /* root × 2    — section titles (exact octave) */
+  --step-display: 2.8284rem; /* root × 2√2  — page titles */
+  --step-specimen: 4rem; /* root × 4    — the specimen line (two octaves) */
+
+  /* ── Vertical rhythm ───────────────────────────────────────────────────────
+     One unit, and the same √2 progression. Every vertical gap on the page is
+     a member of this set; none is hand-picked. */
+  --rhythm: 0.5rem;
+  --rhythm-2: 0.7071rem;
+  --rhythm-3: 1rem;
+  --rhythm-4: 1.4142rem;
+  --rhythm-5: 2rem;
+  --rhythm-6: 2.8284rem;
+  --rhythm-7: 4rem;
+  --rhythm-8: 5.6569rem;
+  --rhythm-9: 8rem;
+
+  /* ── Measure ───────────────────────────────────────────────────────────────
+     Line length in characters, the single most-studied variable in reading
+     comfort. Bringhurst's range is 45–75 characters; 66 is the classical
+     optimum for a single-column setting, and is what running text uses. */
+  --measure-min: 45ch;
+  --measure: 66ch;
+  --measure-max: 75ch;
+
+  /* ── Human factors ─────────────────────────────────────────────────────────
+     Floors, not targets. 44px is the smallest reliable touch target (Apple
+     HIG; Material's 48dp is stricter and we clear it on primary actions).
+     1.5 is the body line-height WCAG 1.4.12 requires content to survive. */
+  --target-min: 2.75rem;
+  --leading-body: 1.5;
+  --leading-display: 1.1;
+
   --shadow-rgb: 28, 22, 20;
   --shadow-key-op: 0.15;
   --shadow-ambient-op: 0.05;
@@ -65,10 +129,26 @@
   --color-signal-green: var(--signal-green);
   --color-signal-red: var(--signal-red);
 
-  --font-display: var(--font-fraunces), Georgia, serif;
-  --font-body: var(--font-plex-sans), system-ui, sans-serif;
-  --font-data:
-    var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --text-data: var(--step-data);
+  --text-body: var(--step-body);
+  --text-lead: var(--step-lead);
+  --text-title: var(--step-title);
+  --text-display: var(--step-display);
+  --text-specimen: var(--step-specimen);
+
+  --spacing-rhythm: var(--rhythm);
+  --spacing-rhythm-2: var(--rhythm-2);
+  --spacing-rhythm-3: var(--rhythm-3);
+  --spacing-rhythm-4: var(--rhythm-4);
+  --spacing-rhythm-5: var(--rhythm-5);
+  --spacing-rhythm-6: var(--rhythm-6);
+  --spacing-rhythm-7: var(--rhythm-7);
+  --spacing-rhythm-8: var(--rhythm-8);
+  --spacing-rhythm-9: var(--rhythm-9);
+
+  --font-display: var(--font-stack-display);
+  --font-body: var(--font-stack-body);
+  --font-data: var(--font-stack-data);
 }
 
 /* Everything below sits in the base layer so utility classes still win — an
@@ -88,6 +168,16 @@
   }
 
   body {
+    /* The font stacks are declared here, not on :root, because next/font
+       sets --font-fraunces on <body>. Declared at :root they resolve to the
+       guaranteed-invalid value and every child inherits the breakage — which
+       is exactly what happened, and why the display face silently fell back
+       to sans until it was looked at in a browser. */
+    --font-stack-display: var(--font-fraunces), Georgia, serif;
+    --font-stack-body: var(--font-plex-sans), system-ui, sans-serif;
+    --font-stack-data:
+      var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
     background: var(--paper);
     color: var(--ink);
     font-family: var(--font-plex-sans), system-ui, sans-serif;
@@ -122,5 +212,104 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ── Principled utilities ────────────────────────────────────────────────────
+
+   These are named for the principle they apply, not for what they look like.
+   A class called `.measure-optimum` states a claim a reader can check; a class
+   called `.max-w-prose` states a preference. Everything here is derived from
+   the ratios above — if a value cannot be traced to one, it does not belong
+   in this layer.
+*/
+@layer components {
+  /* Reading measure. `.measure-optimum` is the default for running text. */
+  .measure-optimum {
+    max-width: var(--measure);
+  }
+  .measure-minimum {
+    max-width: var(--measure-min);
+  }
+  .measure-maximum {
+    max-width: var(--measure-max);
+  }
+
+  /* Frames whose proportion is constructed, not chosen. */
+  .frame-vesica {
+    aspect-ratio: 1 / var(--ratio-vesica);
+  }
+  .frame-golden {
+    aspect-ratio: var(--ratio-golden) / 1;
+  }
+  .frame-diagonal {
+    aspect-ratio: 1 / var(--ratio-diagonal);
+  }
+
+  /* Vertical rhythm applied as flow spacing: every child is separated by one
+     named step, so no sibling gap is ever hand-set. */
+  .flow-rhythm-4 > * + * {
+    margin-block-start: var(--rhythm-4);
+  }
+  .flow-rhythm-5 > * + * {
+    margin-block-start: var(--rhythm-5);
+  }
+  .flow-rhythm-6 > * + * {
+    margin-block-start: var(--rhythm-6);
+  }
+
+  /* Human-factors floor. Any interactive element carrying this class is at
+     least a reliable touch target, whatever its visual size suggests. */
+  .target-comfortable {
+    min-block-size: var(--target-min);
+    min-inline-size: var(--target-min);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Specimen ──────────────────────────────────────────────────────────────
+     A section set as a type specimen: the ordinal and figure as the header
+     rule, the title at display size on tight leading, running text at the
+     optimum measure on 1.5. The scale is visible because the steps are far
+     enough apart to read as deliberate — which is what √2 buys. */
+  .specimen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--rhythm-6);
+  }
+
+  .specimen-ordinal {
+    font-family: var(--font-stack-data);
+    font-size: var(--step-data);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .specimen-title {
+    font-family: var(--font-stack-display);
+    font-weight: 400;
+    /* Fluid between the title and specimen steps: the same scale, sampled
+       continuously across viewports rather than jumping at a breakpoint. */
+    font-size: clamp(var(--step-title), 5vw, var(--step-specimen));
+    line-height: var(--leading-display);
+    max-width: var(--measure-min);
+    text-wrap: balance;
+  }
+
+  .specimen-lead {
+    font-size: var(--step-lead);
+    line-height: 1.35;
+    color: var(--ink-soft);
+    max-width: var(--measure-min);
+    text-wrap: pretty;
+  }
+
+  .specimen-body {
+    font-size: var(--step-body);
+    line-height: var(--leading-body);
+    max-width: var(--measure);
+    text-wrap: pretty;
   }
 }

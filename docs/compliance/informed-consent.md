@@ -111,7 +111,7 @@ Data already included in published aggregate summaries cannot be pulled back out
 ### Questions
 
 About the study: study@bigmadstudy.com
-About your rights as a participant: **[DECIDE]** — the IRB's contact, once #31 completes. An IRB-reviewed protocol must give participants an independent route to complain.
+About your rights as a participant: **[DECIDE]** — the ethics board's contact, once #31 completes. An independently reviewed protocol must give participants a route to complain that does not run through us.
 
 ---
 
