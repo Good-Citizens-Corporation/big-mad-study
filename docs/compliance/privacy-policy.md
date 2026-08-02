@@ -2,7 +2,7 @@
 
 > **Not approved. Not for publication.** Draft for counsel review — slice #33.
 
-**Last updated:** DRAFT · **Applies to:** bigmad.goodcitizens.us and the check-in flows
+**Last updated:** DRAFT · **Applies to:** bigmadstudy.com and the check-in flows
 
 ---
 
