@@ -83,7 +83,9 @@ If data is exposed, we will notify affected participants within **[DECIDE]** and
 
 ## Contact
 
-[DECIDE]@bigmadstudy.com — monitored by a human. If you email it, a person reads it.
+privacy@bigmadstudy.com — monitored by a human. If you email it, a person reads it.
+
+General questions about taking part go to study@bigmadstudy.com; this address is for your data specifically, so requests about it are not lost behind them.
 
 ---
 

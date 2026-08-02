@@ -11,7 +11,7 @@
  * text change plus a version bump, not a rebuild.
  */
 
-export const CONSENT_VERSION = "draft-1";
+export const CONSENT_VERSION = "draft-2";
 
 export type ConsentSection = { heading: string; body: string[] };
 
@@ -55,7 +55,8 @@ export const consentSections: ConsentSection[] = [
   {
     heading: "Your data, your call",
     body: [
-      "Email [DECIDE]@bigmadstudy.com and ask, and we will delete your entries and contact details, then confirm. You don't need to give a reason.",
+      "Email privacy@bigmadstudy.com and ask, and we will delete your entries and contact details, then confirm. You don't need to give a reason.",
+      "Anything else — what this is, how it works, whether it's for you — goes to study@bigmadstudy.com, where a person reads it.",
     ],
   },
 ];

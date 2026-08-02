@@ -81,4 +81,4 @@ Ethics and consent (an independent IRB submission is in preparation, with a sepa
 - Registered-in-advance limitations: opt-in self-selection (now the central sampling property — the study is unpaid), public framing primes attention, recall favors extremes, associations not causation, self-report throughout
 - Consent, privacy, retention, and distress-protocol drafts: `docs/compliance/`
 
-Contact: **Bob Duebelbeis** · bob@goodcitizens.us
+Contact: **Bob Duebelbeis**, Good Citizens Corporation · methods@bigmadstudy.com
