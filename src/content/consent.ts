@@ -55,7 +55,7 @@ export const consentSections: ConsentSection[] = [
   {
     heading: "Your data, your call",
     body: [
-      "Email alias@bigmadstudy.com and ask, and we will delete your entries and contact details, then confirm. You don't need to give a reason.",
+      "Email [DECIDE]@bigmadstudy.com and ask, and we will delete your entries and contact details, then confirm. You don't need to give a reason.",
     ],
   },
 ];

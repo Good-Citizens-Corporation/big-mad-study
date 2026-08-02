@@ -83,7 +83,7 @@ If data is exposed, we will notify affected participants within **[DECIDE]** and
 
 ## Contact
 
-alias@bigmadstudy.com — monitored by a human. If you email it, a person reads it.
+[DECIDE]@bigmadstudy.com — monitored by a human. If you email it, a person reads it.
 
 ---
 
