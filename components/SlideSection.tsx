@@ -112,7 +112,7 @@ export function SlideSection({
           style={{
             left: "50%",
             transform: "translateX(-50%) translateY(-50%)",
-            backgroundColor: "white",
+            backgroundColor: "#fbfaf8",
             padding: "0.5rem",
           }}
         >
