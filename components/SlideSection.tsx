@@ -107,10 +107,8 @@ export function SlideSection({
       className="slide-viewport relative w-full scroll-mt-8"
     >
       {slide.figure && (
-        <div className="absolute inset-x-0 top-0 flex justify-center px-6">
-          <div className="w-full max-w-3xl">
-            <Divider figure={slide.figure} />
-          </div>
+        <div className="my-rhythm-6 flex justify-center">
+          <Divider figure={slide.figure} />
         </div>
       )}
       {/* Set as a type specimen: ordinal, title, lead, running text, each at
