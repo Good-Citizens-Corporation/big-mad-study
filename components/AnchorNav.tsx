@@ -53,7 +53,13 @@ export function AnchorNav({ slides }: { slides: Slide[] }) {
   return (
     <nav
       aria-label="Sections"
-      className="fixed right-6 top-32 z-40 flex max-h-[60vh] flex-col gap-3 overflow-y-auto text-right text-[0.63rem] uppercase tracking-[0.18em]"
+      className="flex max-h-[60vh] flex-col gap-3 overflow-y-auto text-right text-[0.63rem] uppercase tracking-[0.18em]"
+      style={{
+        position: "fixed",
+        right: "1.5rem",
+        top: "8rem",
+        zIndex: 40,
+      }}
     >
       {navItems.map((slide) => (
         <a
