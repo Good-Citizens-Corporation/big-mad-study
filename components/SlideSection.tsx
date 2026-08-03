@@ -104,10 +104,10 @@ export function SlideSection({
     <section
       ref={ref}
       id={slide.id}
-      className="slide-viewport relative w-full scroll-mt-8"
+      className="slide-viewport relative w-full scroll-mt-8 border-b border-hairline"
     >
       {slide.figure && (
-        <div className="my-rhythm-6 text-center">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2">
           <Divider figure={slide.figure} />
         </div>
       )}
