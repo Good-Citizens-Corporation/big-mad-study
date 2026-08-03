@@ -152,6 +152,9 @@ export function Geometry({
       aria-hidden="true"
       focusable="false"
       className="block overflow-visible [&_*]:[vector-effect:non-scaling-stroke]"
+      style={{
+        animation: "buildDestroy 3s ease-in-out infinite",
+      }}
     >
       <Figure figure={figure} />
     </svg>

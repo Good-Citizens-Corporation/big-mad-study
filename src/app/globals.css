@@ -204,6 +204,21 @@
      one they recognise, and it is always more legible than ours. */
 }
 
+@keyframes buildDestroy {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
