@@ -107,7 +107,7 @@ export function SlideSection({
       className="slide-viewport relative w-full scroll-mt-8"
     >
       {slide.figure && (
-        <div className="my-rhythm-6 flex w-full justify-center">
+        <div className="my-rhythm-6 text-center">
           <Divider figure={slide.figure} />
         </div>
       )}
