@@ -151,10 +151,6 @@ describe("full-screen slides avoid the ways this pattern breaks", () => {
     css.indexOf(".specimen {"),
   );
 
-  it("separates sections with subtle bottom borders", () => {
-    expect(slideBlock).toContain("border-bottom: 1px solid var(--hairline)");
-  });
-
   it("uses rhythm-based padding for section spacing", () => {
     expect(slideBlock).toContain("padding-block: var(--rhythm-7)");
   });

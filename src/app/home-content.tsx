@@ -1,4 +1,5 @@
 import { SlideDeck } from "../../components/SlideDeck";
+import { AnchorNav } from "../../components/AnchorNav";
 import { TopNav } from "../../components/TopNav";
 import { PageViewTracker } from "../../components/PageViewTracker";
 import { publicHomeSlides } from "@/content/publicHome";
@@ -9,6 +10,7 @@ export function HomeContent() {
     <HeaderVariantClient variant="hero">
       <PageViewTracker event="landingViewed" />
       <TopNav />
+      <AnchorNav slides={publicHomeSlides} />
       <SlideDeck slides={publicHomeSlides} />
     </HeaderVariantClient>
   );

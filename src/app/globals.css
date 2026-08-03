@@ -289,7 +289,6 @@
         1/φ ≈ 38.2% is that placement.
   */
   .slide-viewport {
-    border-bottom: 1px solid var(--hairline);
     padding-block: var(--rhythm-7);
     scroll-margin-top: var(--target-min);
   }
