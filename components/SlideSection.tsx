@@ -111,7 +111,7 @@ export function SlideSection({
           className="absolute top-0"
           style={{
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-50%) translateY(-50%)",
           }}
         >
           <Divider figure={slide.figure} />
