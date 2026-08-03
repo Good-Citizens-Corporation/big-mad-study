@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 /**
- * BM-E2E-02 — SLICE-02 (issue #10).
+ * BM-E2E-02, SLICE-02 (issue #10).
  * Visitor can read the intro and find the ethical/data-handling explanation.
  */
 

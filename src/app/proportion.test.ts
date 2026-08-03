@@ -151,34 +151,21 @@ describe("full-screen slides avoid the ways this pattern breaks", () => {
     css.indexOf(".specimen {"),
   );
 
-  it("sizes by min-block-size, never a fixed height, so tall content cannot clip", () => {
-    expect(slideBlock).toContain("min-block-size");
-    expect(/[^-]block-size:\s*100/.test(slideBlock)).toBe(false);
+  it("separates sections with subtle bottom borders", () => {
+    expect(slideBlock).toContain("border-bottom: 1px solid var(--hairline)");
   });
 
-  it("uses svh rather than vh, which on mobile is taller than the visible area", () => {
-    expect(slideBlock).toContain("100svh");
-    // vh survives only inside the @supports fallback for older engines.
-    const outsideFallback = slideBlock.slice(0, slideBlock.indexOf("@supports"));
-    expect(outsideFallback).not.toContain("100vh");
+  it("uses rhythm-based padding for section spacing", () => {
+    expect(slideBlock).toContain("padding-block: var(--rhythm-7)");
   });
 
-  it("places content by dividing free space, not the viewport", () => {
-    // Flex spacers in the ratio 1 : phi. Dividing the viewport height instead
-    // pushes content below the fold on short screens.
-    expect(slideBlock).toContain("flex: var(--ratio-golden)");
-    expect(slideBlock).not.toContain("calc(100svh / var(--ratio-golden)");
+  it("includes scroll margin for anchor link navigation", () => {
+    expect(slideBlock).toContain("scroll-margin-top: var(--target-min)");
   });
 
-  it("snaps by proximity, never mandatory, and not at all under reduced motion", () => {
-    // Check declarations, not prose: the comment explaining why mandatory is
-    // wrong contains the word, and an assertion that cannot tell the
-    // difference would fail on its own documentation.
-    const declarations = [
-      ...slideBlock.matchAll(/scroll-snap-type:\s*([^;]+);/g),
-    ].map((m) => m[1].trim());
-    expect(declarations).toContain("y proximity");
-    expect(declarations.some((d) => d.includes("mandatory"))).toBe(false);
-    expect(slideBlock).toContain("prefers-reduced-motion");
+  it("disables scroll snapping for continuous scrolling", () => {
+    const deckStart = css.indexOf(".slide-deck {");
+    const deckBlock = css.slice(deckStart, css.indexOf("}", deckStart) + 1);
+    expect(deckBlock).toContain("scroll-snap-type: none");
   });
 });

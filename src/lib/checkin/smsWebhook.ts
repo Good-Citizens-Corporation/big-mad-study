@@ -12,7 +12,7 @@ import {
  *
  * One gentle repair prompt, never a loop: an incomplete first message gets
  * one reteach of the format; whatever comes next is stored with skips for
- * anything still missing. The consent guard runs on the receive path too , 
+ * anything still missing. The consent guard runs on the receive path too ,
  * an un-consented sender gets a neutral reply that echoes nothing they
  * wrote, because content we refuse to store is content we refuse to handle.
  */

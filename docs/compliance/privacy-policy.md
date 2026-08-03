@@ -39,8 +39,8 @@ If you opt into voice check-ins, we collect a recording of your voice. Several U
 
 An unnamed processor is not a disclosure, so here they are:
 
-| Company                  | What they do                              | Agreement                   |
-| ------------------------ | ----------------------------------------- | --------------------------- |
+| Company                  | What they do                              | Agreement                  |
+| ------------------------ | ----------------------------------------- | -------------------------- |
 | Twilio                   | Sends and receives check-in text messages | DPA, **[DECIDE: signed?]** |
 | Google Cloud (Firestore) | Stores study data                         | DPA, **[DECIDE: signed?]** |
 | Vercel                   | Hosts the website; handles server logs    | DPA, **[DECIDE: signed?]** |

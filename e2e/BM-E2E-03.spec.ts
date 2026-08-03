@@ -2,7 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { test, expect, type Page } from "@playwright/test";
 
 /**
- * BM-E2E-03 — SLICE-03 (issue #11).
+ * BM-E2E-03, SLICE-03 (issue #11).
  * Accessibility baseline across every top-level page.
  *
  * This is the automated floor, not the whole story: axe catches roughly a
@@ -44,7 +44,7 @@ test.describe("BM-E2E-03 – Accessibility baseline", () => {
           await page.goto(path);
           const results = await scan(page);
 
-          // Name the rules rather than dumping the object — a bare count
+          // Name the rules rather than dumping the object, a bare count
           // tells a reader nothing about what broke.
           const summary = results.violations.map(
             (v) => `${v.id} (${v.impact}) ×${v.nodes.length}`,
@@ -157,7 +157,7 @@ test.describe("BM-E2E-03 – Accessibility baseline", () => {
         }
 
         // Something must be reachable, and tabbing must not cycle forever on
-        // one element — the signature of a focus trap.
+        // one element, the signature of a focus trap.
         expect(seen.length).toBeGreaterThan(3);
         expect(new Set(seen).size).toBeGreaterThan(1);
       },

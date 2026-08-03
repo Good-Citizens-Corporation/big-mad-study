@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 
 /**
- * BM-E2E-04 — SLICE-04 (issue #12).
+ * BM-E2E-04, SLICE-04 (issue #12).
  * Entry-flow telemetry fires in a real browser, carrying no PII.
  */
 
@@ -74,7 +74,7 @@ test("BM-E2E-04 – Entry-flow telemetry fires and stays free of PII", async ({
   });
 
   await runStep(gherkinSteps.landing.once, async () => {
-    // Detour via /methods, not /about — visiting /about here would burn its
+    // Detour via /methods, not /about, visiting /about here would burn its
     // own once-per-session flag before the step that asserts it.
     await page.goto("/methods");
     await page.goto("/");

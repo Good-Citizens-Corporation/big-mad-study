@@ -74,15 +74,15 @@ Changing a token without running this suite is how the palette silently regresse
 
 Write tests in this order. Each letter must have at least one named test before the change is done, or a stated reason it does not apply.
 
-|       | Letter    | Covers                                                           |
-| ----- | --------- | ---------------------------------------------------------------- |
-| **Z** | Zero      | zero / null / empty / absent input                               |
-| **O** | One       | a single valid input                                             |
-| **M** | Many      | multiple items (collections, repetition, ordering)               |
-| **B** | Boundary  | edge of the valid range; idempotency; off-by-one                 |
+|       | Letter    | Covers                                                          |
+| ----- | --------- | --------------------------------------------------------------- |
+| **Z** | Zero      | zero / null / empty / absent input                              |
+| **O** | One       | a single valid input                                            |
+| **M** | Many      | multiple items (collections, repetition, ordering)              |
+| **B** | Boundary  | edge of the valid range; idempotency; off-by-one                |
 | **I** | Interface | the contract itself, does the signature make sense to a caller? |
-| **E** | Exception | error propagation; what throws, what swallows                    |
-| **S** | Simple    | the happy path, end to end                                       |
+| **E** | Exception | error propagation; what throws, what swallows                   |
+| **S** | Simple    | the happy path, end to end                                      |
 
 Zero comes first. Beyond that the order is a judgment call, pick the case that reveals the most about the design.
 

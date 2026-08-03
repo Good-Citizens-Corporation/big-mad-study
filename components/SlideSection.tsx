@@ -6,6 +6,7 @@ import type { Slide, SlideBodyItem, SlideCTA } from "@/lib/types";
 import { track } from "@/lib/telemetry";
 import { StartScreenerLink } from "./StartScreenerLink";
 import { Divider } from "./Divider";
+import { Plate } from "./Plate";
 
 export function SlideSection({
   slide,
@@ -131,6 +132,7 @@ export function SlideSection({
             {renderBody(slide.body)}
           </div>
         )}
+        {slide.plate && <Plate name={slide.plate} />}
         {slide.ctas && slide.ctas.length > 0 && (
           <div className="flex flex-wrap items-center gap-rhythm-6">
             {renderCTAs(slide.ctas)}

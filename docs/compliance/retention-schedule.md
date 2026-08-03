@@ -5,16 +5,16 @@
 
 ## Schedule
 
-| Data                          | Retention                                                                                           | Destruction trigger            | Owner        |
-| ----------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
+| Data                          | Retention                                                                                          | Destruction trigger            | Owner        |
+| ----------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------ | ------------ |
 | Raw voice audio               | **[DECIDE]**, recommend the shorter of _transcription complete + 30 days_ or _study end + 90 days_ | Automated job                  | **[DECIDE]** |
-| Transcripts (de-identified)   | **[DECIDE]**                                                                                        | Manual, on request or schedule | **[DECIDE]** |
-| Screener responses            | **[DECIDE]**                                                                                        | Automated job                  | **[DECIDE]** |
-| Survey responses              | **[DECIDE]**                                                                                        | Automated job                  | **[DECIDE]** |
-| Contact details (email/phone) | Study end + **[DECIDE]**                                                                            | Automated job                  | **[DECIDE]** |
+| Transcripts (de-identified)   | **[DECIDE]**                                                                                       | Manual, on request or schedule | **[DECIDE]** |
+| Screener responses            | **[DECIDE]**                                                                                       | Automated job                  | **[DECIDE]** |
+| Survey responses              | **[DECIDE]**                                                                                       | Automated job                  | **[DECIDE]** |
+| Contact details (email/phone) | Study end + **[DECIDE]**                                                                           | Automated job                  | **[DECIDE]** |
 | Consent records               | Longer than the data they authorize, **[DECIDE]**                                                  | Manual                         | **[DECIDE]** |
-| Analytics                     | **[DECIDE]**                                                                                        | Provider default               | **[DECIDE]** |
-| Published aggregates          | Indefinite                                                                                          | N/A, not personal data        |,            |
+| Analytics                     | **[DECIDE]**                                                                                       | Provider default               | **[DECIDE]** |
+| Published aggregates          | Indefinite                                                                                         | N/A, not personal data         | ,            |
 
 ## Rules
 

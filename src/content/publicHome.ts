@@ -1,6 +1,14 @@
 import type { Slide } from "@/lib/types";
 import { preRegistration } from "./registration";
 import { sectionFigures } from "./geometry";
+import type { PlateName } from "./plates";
+
+/** Sections whose claim is better made as a diagram than as prose. */
+const sectionPlates: Record<string, PlateName> = {
+  "what-were-studying": "displacement",
+  "how-it-works": "week",
+  privacy: "separation",
+};
 
 /**
  * A frozen, timestamped registration issued by an independent registry.
@@ -364,4 +372,5 @@ export const publicHomeSlides: Slide[] = buildPublicHomeSlides(
   // The figure is looked up rather than hand-set per slide, so a section
   // cannot drift away from the figure registered as marking it.
   figure: slide.id ? sectionFigures[slide.id] : undefined,
+  plate: slide.id ? sectionPlates[slide.id] : undefined,
 }));

@@ -289,51 +289,14 @@
         1/φ ≈ 38.2% is that placement.
   */
   .slide-viewport {
-    min-block-size: 100svh;
-    display: flex;
-    flex-direction: column;
-    scroll-snap-align: start;
+    border-bottom: 1px solid var(--hairline);
+    padding-block: var(--rhythm-7);
+    scroll-margin-top: var(--target-min);
   }
 
-  @supports not (min-block-size: 100svh) {
-    .slide-viewport {
-      min-block-size: 100vh;
-    }
-  }
-
-  /* Golden-section placement, done on the free space rather than the
-     viewport. Two flex spacers grow in the ratio 1 : phi, so whatever is left
-     over after the content is divided 38.2% above / 61.8% below. That is the
-     classical placement of a text block on a page, and it is why a block
-     centred by measurement reads as sitting too low.
-
-     Doing this arithmetically on the viewport height instead pushes content
-     below the fold on short screens, which is the mistake this replaced. */
-  .slide-viewport::before,
-  .slide-viewport::after {
-    content: "";
-    display: block;
-  }
-
-  .slide-viewport::before {
-    flex: 1 1 0;
-  }
-
-  .slide-viewport::after {
-    flex: var(--ratio-golden) 1 0;
-  }
-
-  /* Proximity, never mandatory: mandatory snapping fights a user who wants to
-     scroll a little, and is a standing accessibility complaint. Off entirely
-     under reduced-motion. */
+  /* Clean scrollable layout, no snap behavior */
   .slide-deck {
-    scroll-snap-type: y proximity;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .slide-deck {
-      scroll-snap-type: none;
-    }
+    scroll-snap-type: none;
   }
 
   /* ── Specimen ──────────────────────────────────────────────────────────────
