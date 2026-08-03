@@ -18,7 +18,7 @@ export function Divider({
   return (
     <div
       role="separator"
-      className="flex w-full justify-center text-ink-soft opacity-70"
+      className="flex items-center justify-center text-ink-soft opacity-70"
     >
       <Geometry figure={figure} size={size} />
     </div>
