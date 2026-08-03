@@ -5,6 +5,7 @@ import type { Slide } from "@/lib/types";
 
 export function AnchorNav({ slides }: { slides: Slide[] }) {
   const [activeId, setActiveId] = useState<string | undefined>();
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -34,13 +35,25 @@ export function AnchorNav({ slides }: { slides: Slide[] }) {
     return () => observer.disconnect();
   }, [slides]);
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  if (!isLargeScreen) return null;
+
   // Only show sections that have an ID
   const navItems = slides.filter((s) => s.id);
 
   return (
     <nav
       aria-label="Sections"
-      className="fixed right-6 top-32 hidden max-h-[60vh] flex-col gap-3 overflow-y-auto text-right text-[0.63rem] uppercase tracking-[0.18em] lg:flex"
+      className="fixed right-6 top-32 z-40 flex max-h-[60vh] flex-col gap-3 overflow-y-auto text-right text-[0.63rem] uppercase tracking-[0.18em]"
     >
       {navItems.map((slide) => (
         <a
