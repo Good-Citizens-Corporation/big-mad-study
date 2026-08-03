@@ -18,11 +18,9 @@ export function Divider({
   return (
     <div
       role="separator"
-      className="flex w-full items-center gap-6 text-ink-soft opacity-70"
+      className="flex w-full justify-center text-ink-soft opacity-70"
     >
-      <span className="h-px flex-1 bg-hairline" />
       <Geometry figure={figure} size={size} />
-      <span className="h-px flex-1 bg-hairline" />
     </div>
   );
 }

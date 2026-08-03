@@ -106,13 +106,11 @@ export function SlideSection({
       id={slide.id}
       className="slide-viewport relative w-full scroll-mt-8"
     >
-      <div className="absolute inset-x-0 top-0 mx-auto max-w-3xl px-6">
-        {slide.figure ? (
+      {slide.figure && (
+        <div className="absolute inset-x-0 top-0 mx-auto max-w-3xl px-6">
           <Divider figure={slide.figure} />
-        ) : (
-          <div className="h-px w-full bg-hairline" />
-        )}
-      </div>
+        </div>
+      )}
       {/* Set as a type specimen: ordinal, title, lead, running text, each at
           a named step of the √2 scale, each at the measure its role wants.
           No font-size, gap, or max-width here is hand-picked; every one is

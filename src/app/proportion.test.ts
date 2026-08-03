@@ -159,9 +159,13 @@ describe("full-screen slides avoid the ways this pattern breaks", () => {
     expect(slideBlock).toContain("scroll-margin-top: var(--target-min)");
   });
 
-  it("disables scroll snapping for continuous scrolling", () => {
+  it("enables proximity snap scrolling at section boundaries", () => {
     const deckStart = css.indexOf(".slide-deck {");
     const deckBlock = css.slice(deckStart, css.indexOf("}", deckStart) + 1);
-    expect(deckBlock).toContain("scroll-snap-type: none");
+    expect(deckBlock).toContain("scroll-snap-type: y proximity");
+  });
+
+  it("aligns sections at the start of the scroll snap", () => {
+    expect(slideBlock).toContain("scroll-snap-align: start");
   });
 });

@@ -293,9 +293,13 @@
     scroll-margin-top: var(--target-min);
   }
 
-  /* Clean scrollable layout, no snap behavior */
+  /* Proximity snap for natural scroll stops at section boundaries */
   .slide-deck {
-    scroll-snap-type: none;
+    scroll-snap-type: y proximity;
+  }
+
+  .slide-viewport {
+    scroll-snap-align: start;
   }
 
   /* ── Specimen ──────────────────────────────────────────────────────────────
