@@ -107,7 +107,7 @@ export function SlideSection({
       className="slide-viewport relative w-full scroll-mt-8 border-b border-hairline"
     >
       {slide.figure && (
-        <div className="absolute left-1/2 top-0 -translate-x-1/2">
+        <div className="absolute inset-x-0 top-0 mx-auto w-fit">
           <Divider figure={slide.figure} />
         </div>
       )}
