@@ -20,7 +20,7 @@ export function Divider({
       role="separator"
       className="flex items-center justify-center text-ink-soft opacity-70"
     >
-      <Geometry figure={figure} size={size} />
+      <Geometry figure={figure} size={size} animate />
     </div>
   );
 }

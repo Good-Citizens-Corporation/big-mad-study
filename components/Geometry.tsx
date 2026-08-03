@@ -136,9 +136,11 @@ function Figure({ figure }: { figure: GeometryFigure }) {
 export function Geometry({
   figure,
   size = 30,
+  animate = false,
 }: {
   figure: GeometryFigure;
   size?: number;
+  animate?: boolean;
 }) {
   return (
     <svg
@@ -152,29 +154,33 @@ export function Geometry({
       aria-hidden="true"
       focusable="false"
       className="block overflow-visible [&_*]:[vector-effect:non-scaling-stroke]"
-      style={{
-        animation: "buildDestroy 3s ease-in-out infinite",
-      }}
+      style={
+        animate
+          ? {
+              animation: "buildDestroy 3s ease-in-out infinite",
+            }
+          : undefined
+      }
     >
-      <defs>
-        <path
-          id="ricochet-path"
-          d="M 50 20 L 50 50 L 50 80"
-          fill="none"
-        />
-      </defs>
+      {animate && (
+        <defs>
+          <path id="ricochet-path" d="M 50 20 L 50 50 L 50 80" fill="none" />
+        </defs>
+      )}
       <Figure figure={figure} />
-      <circle r="1.5" fill="currentColor" opacity="0.7">
-        <animateMotion
-          dur="3s"
-          repeatCount="indefinite"
-          keyPoints="0;0.5;1"
-          keyTimes="0;0.4;1"
-          calcMode="linear"
-        >
-          <mpath xlinkHref="#ricochet-path" />
-        </animateMotion>
-      </circle>
+      {animate && (
+        <circle r="1.5" fill="currentColor" opacity="0.7">
+          <animateMotion
+            dur="3s"
+            repeatCount="indefinite"
+            keyPoints="0;0.5;1"
+            keyTimes="0;0.4;1"
+            calcMode="linear"
+          >
+            <mpath xlinkHref="#ricochet-path" />
+          </animateMotion>
+        </circle>
+      )}
     </svg>
   );
 }
