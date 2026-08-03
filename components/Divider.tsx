@@ -2,7 +2,7 @@ import type { GeometryFigure } from "@/content/geometry";
 import { Geometry } from "./Geometry";
 
 /**
- * The layout separator: rule — figure — rule.
+ * The layout separator: rule, figure, rule.
  *
  * It replaces a plain border between sections, so the page gains meaning
  * where it previously had only a line. `role="separator"` because that is

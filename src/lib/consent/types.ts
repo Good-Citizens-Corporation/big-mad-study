@@ -1,5 +1,5 @@
 /**
- * Consent records — shared between the screener gate (SLICE-00-03, #32) and
+ * Consent records, shared between the screener gate (SLICE-00-03, #32) and
  * check-in storage (SLICE-04-01, #44).
  *
  * The three scopes mirror the consent document's three separately-refusable
@@ -8,7 +8,7 @@
  */
 
 export type ConsentScopes = {
-  /** The study itself. Required — without it nothing may be stored. */
+  /** The study itself. Required, without it nothing may be stored. */
   study: boolean;
   /** Biometric consent for voice recordings (BIPA-grade, separate). */
   voice: boolean;
@@ -18,7 +18,7 @@ export type ConsentScopes = {
 
 export type ConsentRecord = {
   hashedParticipantId: string;
-  /** Which text they agreed to — the exact version shown, never inferred. */
+  /** Which text they agreed to, the exact version shown, never inferred. */
   consentVersion: string;
   scopes: ConsentScopes;
   agreedAt: string;

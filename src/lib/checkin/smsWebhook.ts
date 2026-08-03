@@ -8,11 +8,11 @@ import {
 } from "./store";
 
 /**
- * Inbound SMS handling — SLICE-04-02 (issue #45).
+ * Inbound SMS handling, SLICE-04-02 (issue #45).
  *
  * One gentle repair prompt, never a loop: an incomplete first message gets
  * one reteach of the format; whatever comes next is stored with skips for
- * anything still missing. The consent guard runs on the receive path too —
+ * anything still missing. The consent guard runs on the receive path too , 
  * an un-consented sender gets a neutral reply that echoes nothing they
  * wrote, because content we refuse to store is content we refuse to handle.
  */
@@ -39,8 +39,8 @@ const REPLIES = {
   notEnrolled:
     "This number isn't enrolled in the Big-Mad Study, so nothing was saved. If you meant to join, start at the study website.",
   repair:
-    "Got the story — could you add a number 0–10 for how much it got to you, where it went (tool / them / me / nowhere), and when it happened? One text is fine.",
-  confirmed: "Got it — thank you. Skip any day you need to.",
+    "Got the story, could you add a number 0–10 for how much it got to you, where it went (tool / them / me / nowhere), and when it happened? One text is fine.",
+  confirmed: "Got it, thank you. Skip any day you need to.",
 } as const;
 
 export async function handleInboundSms(
@@ -69,7 +69,7 @@ export async function handleInboundSms(
   deps.repairPending.delete(hashedParticipantId);
   const narrative = [pendingNarrative, parsed.narrative]
     .filter((part) => part && part.length > 0)
-    .join(" — ");
+    .join(", ");
 
   const result = await storeCheckIn(
     {

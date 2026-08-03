@@ -4,11 +4,11 @@ import { handleInboundSms, type SmsDeps } from "@/lib/checkin/smsWebhook";
 import type { CheckInEntry } from "@/lib/checkin/types";
 
 /**
- * Twilio inbound-SMS webhook — SLICE-04-02 (issue #45).
+ * Twilio inbound-SMS webhook, SLICE-04-02 (issue #45).
  *
  * Wiring only: all behavior lives in handleInboundSms, which is where the
  * tests are. Until persistence exists, the consent lookup returns null for
- * everyone — so every real message gets the not-enrolled reply and nothing
+ * everyone, so every real message gets the not-enrolled reply and nothing
  * is ever stored. The safe default is the deliberate one: this endpoint can
  * ship to staging today without being able to collect a single entry.
  */

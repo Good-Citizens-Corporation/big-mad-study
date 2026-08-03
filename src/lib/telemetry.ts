@@ -1,5 +1,5 @@
 /**
- * Client-side telemetry for entry flows — SLICE-04 (issue #12).
+ * Client-side telemetry for entry flows, SLICE-04 (issue #12).
  *
  * The sink is pluggable so a provider can be swapped in later without
  * touching a single call site. Until one is configured, events buffer on
@@ -66,7 +66,7 @@ export function track(name: string, props: TelemetryProps = {}): void {
   // Drop rather than sanitize: a silently stripped property is a bug that
   // ships, whereas a missing event shows up the first time anyone looks.
   if (carriesPII(props)) {
-    console.warn(`[telemetry] dropped "${name}" — properties carry PII`);
+    console.warn(`[telemetry] dropped "${name}", properties carry PII`);
     return;
   }
 

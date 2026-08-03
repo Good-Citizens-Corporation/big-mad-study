@@ -1,12 +1,12 @@
 import { configureTelemetry, type TelemetryEvent } from "./telemetry";
 
 /**
- * The first real sink — batches events to /api/telemetry.
+ * The first real sink, batches events to /api/telemetry.
  *
  * Interim by design: the endpoint writes structured lines to the runtime
  * log, which makes EPIC-01's funnel readable in Vercel's log explorer today
  * without committing to an analytics vendor. Swapping in a vendor later is
- * a change to the endpoint, not to any call site — that was #12's whole
+ * a change to the endpoint, not to any call site, that was #12's whole
  * architecture.
  *
  * Transport rules: never synchronous, never throws to the page, never sends
@@ -33,7 +33,7 @@ function ship(): void {
       /* a dead endpoint loses events, not visitors */
     });
   } catch {
-    /* fetch itself unavailable — same rule */
+    /* fetch itself unavailable, same rule */
   }
 }
 

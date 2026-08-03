@@ -4,7 +4,7 @@ import { SlideDeck } from "../../components/SlideDeck";
 import { publicHomeSlides } from "../content/publicHome";
 
 /**
- * SLICE-02 (issue #10) — Big-Mad story & value prop.
+ * SLICE-02 (issue #10), Big-Mad story & value prop.
  *
  * Guards the three acceptance criteria: a visitor can tell what the study is
  * and what they'd be doing, can see who is behind it, and can find the

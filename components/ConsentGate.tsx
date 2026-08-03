@@ -14,12 +14,12 @@ export type ConsentDecision =
   | { declined: false; consentVersion: string; scopes: ConsentScopes };
 
 /**
- * The consent gate — SLICE-00-03 (issue #32).
+ * The consent gate, SLICE-00-03 (issue #32).
  *
  * Renders before any personal-data question and collects agreement, never
  * data: there are no text inputs here by design, and a test asserts it.
  * The three agreements are independently refusable; declining is a single
- * click that needs no checkboxes — it must never be harder than accepting.
+ * click that needs no checkboxes, it must never be harder than accepting.
  */
 export function ConsentGate({
   onDecision,
@@ -73,7 +73,7 @@ export function ConsentGate({
     <div>
       {CONSENT_VERSION.startsWith("draft") && (
         <p className="mb-8 border border-rule px-4 py-3 font-data text-[0.63rem] uppercase tracking-[0.18em] text-ink-soft">
-          Draft consent — not yet approved for participant use
+          Draft consent, not yet approved for participant use
         </p>
       )}
 
@@ -85,7 +85,7 @@ export function ConsentGate({
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-soft">
         Read this first. We don&rsquo;t ask you a single question until
-        you&rsquo;ve decided — and deciding no takes one click.
+        you&rsquo;ve decided, and deciding no takes one click.
       </p>
 
       {consentSections.map((section) => (
@@ -122,7 +122,7 @@ export function ConsentGate({
           disabled={!study || !age}
           className="rounded-full border border-accent px-6 py-3 font-data text-[0.63rem] uppercase tracking-[0.18em] text-accent disabled:cursor-not-allowed disabled:opacity-40"
         >
-          I agree — continue
+          I agree, continue
         </button>
         <button
           type="button"

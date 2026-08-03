@@ -1,6 +1,6 @@
-# Privacy Policy — DRAFT
+# Privacy Policy, DRAFT
 
-> **Not approved. Not for publication.** Draft for counsel review — slice #33.
+> **Not approved. Not for publication.** Draft for counsel review, slice #33.
 
 **Last updated:** DRAFT · **Applies to:** bigmadstudy.com and the check-in flows
 
@@ -27,7 +27,7 @@ We do **not** collect your name at work, your employer, your job title in identi
 
 ## Voice recordings
 
-If you opt into voice check-ins, we collect a recording of your voice. Several US states — Illinois, Texas, Washington — treat a voiceprint as a biometric identifier with specific rules. We follow the strictest of them regardless of where you live.
+If you opt into voice check-ins, we collect a recording of your voice. Several US states, Illinois, Texas, Washington, treat a voiceprint as a biometric identifier with specific rules. We follow the strictest of them regardless of where you live.
 
 - We ask for written, separate permission before any recording.
 - **Transcription runs on our own hardware.** We use Whisper, an open-source speech-to-text model, running on machines we control. Your audio is not uploaded to any transcription service.
@@ -41,16 +41,16 @@ An unnamed processor is not a disclosure, so here they are:
 
 | Company                  | What they do                              | Agreement                   |
 | ------------------------ | ----------------------------------------- | --------------------------- |
-| Twilio                   | Sends and receives check-in text messages | DPA — **[DECIDE: signed?]** |
-| Google Cloud (Firestore) | Stores study data                         | DPA — **[DECIDE: signed?]** |
-| Vercel                   | Hosts the website; handles server logs    | DPA — **[DECIDE: signed?]** |
-| **[DECIDE]** analytics   | Measures site usage                       | DPA — **[DECIDE]**          |
+| Twilio                   | Sends and receives check-in text messages | DPA, **[DECIDE: signed?]** |
+| Google Cloud (Firestore) | Stores study data                         | DPA, **[DECIDE: signed?]** |
+| Vercel                   | Hosts the website; handles server logs    | DPA, **[DECIDE: signed?]** |
+| **[DECIDE]** analytics   | Measures site usage                       | DPA, **[DECIDE]**          |
 
 **No third-party AI service processes your entries.** Transcription is self-hosted. If that ever changes, this page changes first and we ask your permission again.
 
 ## Who does not
 
-Your employer. We do not contact employers, we do not verify employment, and nothing you write or say is shared with any workplace. This is not a courtesy — it is a design constraint.
+Your employer. We do not contact employers, we do not verify employment, and nothing you write or say is shared with any workplace. This is not a courtesy, it is a design constraint.
 
 ## How it is separated
 
@@ -60,7 +60,7 @@ Contact details live in a different store from your responses, linked only by an
 
 Aggregate patterns across participants. Short anonymized excerpts, if any, stripped of identifying detail. Never raw audio. Never a single participant's entries as a set.
 
-We also publish our limitations and the results we did not expect. Our hypotheses were pre-registered publicly before collection **[DECIDE — link the DOI once #38 completes]**.
+We also publish our limitations and the results we did not expect. Our hypotheses were pre-registered publicly before collection **[DECIDE, link the DOI once #38 completes]**.
 
 ## Your choices
 
@@ -71,11 +71,11 @@ We also publish our limitations and the results we did not expect. Our hypothese
 
 Data already folded into published aggregates cannot be extracted, because at that point it is no longer separable. Everything else goes.
 
-**[DECIDE]** — whether to offer GDPR/CCPA-specific rights language. If any EU or California participants are expected (California is near-certain), this section needs the statutory rights spelled out with the statutory response windows.
+**[DECIDE]**, whether to offer GDPR/CCPA-specific rights language. If any EU or California participants are expected (California is near-certain), this section needs the statutory rights spelled out with the statutory response windows.
 
 ## Security
 
-**[DECIDE]** — describe encryption at rest and in transit, access controls, and who on the team can see raw entries. Do not claim a control that is not implemented; an aspirational security section is the kind of statement that turns a breach into a misrepresentation.
+**[DECIDE]**, describe encryption at rest and in transit, access controls, and who on the team can see raw entries. Do not claim a control that is not implemented; an aspirational security section is the kind of statement that turns a breach into a misrepresentation.
 
 ## Breach
 
@@ -83,7 +83,7 @@ If data is exposed, we will notify affected participants within **[DECIDE]** and
 
 ## Contact
 
-privacy@bigmadstudy.com — monitored by a human. If you email it, a person reads it.
+privacy@bigmadstudy.com, monitored by a human. If you email it, a person reads it.
 
 General questions about taking part go to study@bigmadstudy.com; this address is for your data specifically, so requests about it are not lost behind them.
 

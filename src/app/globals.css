@@ -5,7 +5,7 @@
   colors.
 
   Gallery white. Rooms differ by a barely-there shift in the paper, never by a
-  change of ground — the walls stay white. One webfont for the display voice;
+  change of ground, the walls stay white. One webfont for the display voice;
   body and data sit on the visitor's own stack where the browser renders them
   better than we would.
 
@@ -13,7 +13,7 @@
   dark ground: its signal colors are tuned against #0B0B0F ink, where teal and
   yellow read as light. Dropped onto paper they land at 1.35–3.88:1 and fail
   outright. Each one below is darkened along its own hue until it clears the
-  contrast bar for the job it does — the brand hue survives, the luminance does
+  contrast bar for the job it does, the brand hue survives, the luminance does
   not, because it cannot.
 */
 
@@ -22,7 +22,7 @@
   --paper-alt: #f4f2ee;
   --ink: #1a1a18;
 
-  /* Darkened from the gallery's #6f6c66 (5.02:1 — AA only). Secondary copy
+  /* Darkened from the gallery's #6f6c66 (5.02:1, AA only). Secondary copy
      carries too much of this page to sit below AAA. */
   --ink-soft: #524f49;
 
@@ -49,7 +49,7 @@
   /* ── Proportion ────────────────────────────────────────────────────────────
 
      Three ratios, all constructible from the same figures with compass and
-     straightedge — which is the honest form of the claim. They are related by
+     straightedge, which is the honest form of the claim. They are related by
      construction, not chosen by taste:
 
        √2  the diagonal of a square
@@ -62,24 +62,24 @@
      of the scale lands on an exact doubling. 1 → 1.414 → 2 → 2.828 → 4.
      Octaves fall on integers; nothing drifts.
 
-     φ governs spatial proportion — frame ratios and the relation of measure
-     to margin — where its self-similar property (φ² = φ + 1) means a division
+     φ governs spatial proportion, frame ratios and the relation of measure
+     to margin, where its self-similar property (φ² = φ + 1) means a division
      leaves a rectangle of the same shape.
   */
-  --ratio-diagonal: 1.4142136; /* √2 — square's diagonal */
-  --ratio-vesica: 1.7320508; /* √3 — vesica piscis height */
-  --ratio-golden: 1.618034; /* φ — double-square diagonal */
+  --ratio-diagonal: 1.4142136; /* √2, square's diagonal */
+  --ratio-vesica: 1.7320508; /* √3, vesica piscis height */
+  --ratio-golden: 1.618034; /* φ, double-square diagonal */
 
   /* ── Type scale ────────────────────────────────────────────────────────────
      Geometric on √2 from a 1rem root. The root is 1rem and not smaller
-     because 16px is the floor below which mobile browsers zoom on focus —
+     because 16px is the floor below which mobile browsers zoom on focus , 
      a human-factors constraint, not a preference. */
-  --step-data: 0.7071rem; /* root ÷ √2   — labels, ordinals, metadata */
-  --step-body: 1rem; /* root         — running text */
-  --step-lead: 1.4142rem; /* root × √2   — standfirst, subtitles */
-  --step-title: 2rem; /* root × 2    — section titles (exact octave) */
-  --step-display: 2.8284rem; /* root × 2√2  — page titles */
-  --step-specimen: 4rem; /* root × 4    — the specimen line (two octaves) */
+  --step-data: 0.7071rem; /* root ÷ √2  , labels, ordinals, metadata */
+  --step-body: 1rem; /* root        , running text */
+  --step-lead: 1.4142rem; /* root × √2  , standfirst, subtitles */
+  --step-title: 2rem; /* root × 2   , section titles (exact octave) */
+  --step-display: 2.8284rem; /* root × 2√2 , page titles */
+  --step-specimen: 4rem; /* root × 4   , the specimen line (two octaves) */
 
   /* ── Vertical rhythm ───────────────────────────────────────────────────────
      One unit, and the same √2 progression. Every vertical gap on the page is
@@ -151,7 +151,7 @@
   --font-data: var(--font-stack-data);
 }
 
-/* Everything below sits in the base layer so utility classes still win — an
+/* Everything below sits in the base layer so utility classes still win, an
    unlayered reset would outrank every px-6 and mt-4 on the page. */
 @layer base {
   *,
@@ -170,7 +170,7 @@
   body {
     /* The font stacks are declared here, not on :root, because next/font
        sets --font-fraunces on <body>. Declared at :root they resolve to the
-       guaranteed-invalid value and every child inherits the breakage — which
+       guaranteed-invalid value and every child inherits the breakage, which
        is exactly what happened, and why the display face silently fell back
        to sans until it was looked at in a browser. */
     --font-stack-display: var(--font-fraunces), Georgia, serif;
@@ -220,7 +220,7 @@
    These are named for the principle they apply, not for what they look like.
    A class called `.measure-optimum` states a claim a reader can check; a class
    called `.max-w-prose` states a preference. Everything here is derived from
-   the ratios above — if a value cannot be traced to one, it does not belong
+   the ratios above, if a value cannot be traced to one, it does not belong
    in this layer.
 */
 @layer components {
@@ -268,11 +268,79 @@
     justify-content: center;
   }
 
+  /* ── Full-screen slides ────────────────────────────────────────────────────
+
+     Each section fills the viewport. Three decisions here are load-bearing
+     and all three are places this pattern usually breaks:
+
+     1. `min-block-size`, never `block-size`. A fixed height clips any section
+        whose content outgrows it, which on a 390px screen is most of them , 
+        and clipped consent copy is a legal problem, not a visual one.
+
+     2. `svh`, not `vh`. On mobile, 100vh is the viewport *without* browser
+        chrome, so a 100vh section is taller than what the user can see and
+        the last line hides behind the URL bar. `svh` is the small viewport:
+        it never overflows, and when chrome retracts the next section peeks,
+        which is honest scroll affordance rather than a bug.
+
+     3. Content sits at the golden section from the top, not centred. Optical
+        centring: a block centred by measurement reads as low. Classical page
+        layout places the text block by ratio for exactly this reason, and
+        1/φ ≈ 38.2% is that placement.
+  */
+  .slide-viewport {
+    min-block-size: 100svh;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+
+  @supports not (min-block-size: 100svh) {
+    .slide-viewport {
+      min-block-size: 100vh;
+    }
+  }
+
+  /* Golden-section placement, done on the free space rather than the
+     viewport. Two flex spacers grow in the ratio 1 : phi, so whatever is left
+     over after the content is divided 38.2% above / 61.8% below. That is the
+     classical placement of a text block on a page, and it is why a block
+     centred by measurement reads as sitting too low.
+
+     Doing this arithmetically on the viewport height instead pushes content
+     below the fold on short screens, which is the mistake this replaced. */
+  .slide-viewport::before,
+  .slide-viewport::after {
+    content: "";
+    display: block;
+  }
+
+  .slide-viewport::before {
+    flex: 1 1 0;
+  }
+
+  .slide-viewport::after {
+    flex: var(--ratio-golden) 1 0;
+  }
+
+  /* Proximity, never mandatory: mandatory snapping fights a user who wants to
+     scroll a little, and is a standing accessibility complaint. Off entirely
+     under reduced-motion. */
+  .slide-deck {
+    scroll-snap-type: y proximity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide-deck {
+      scroll-snap-type: none;
+    }
+  }
+
   /* ── Specimen ──────────────────────────────────────────────────────────────
      A section set as a type specimen: the ordinal and figure as the header
      rule, the title at display size on tight leading, running text at the
      optimum measure on 1.5. The scale is visible because the steps are far
-     enough apart to read as deliberate — which is what √2 buys. */
+     enough apart to read as deliberate, which is what √2 buys. */
   .specimen {
     display: flex;
     flex-direction: column;

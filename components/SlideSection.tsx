@@ -22,7 +22,7 @@ export function SlideSection({
   // left the landing page with no h1 at all.
   const Heading = index === 0 ? "h1" : "h2";
 
-  // landingInfoSectionViewed — fires once per section, the first time it
+  // landingInfoSectionViewed, fires once per section, the first time it
   // enters the viewport. Guarded because jsdom has no IntersectionObserver.
   useEffect(() => {
     const node = ref.current;
@@ -100,20 +100,24 @@ export function SlideSection({
   };
 
   return (
-    <section ref={ref} id={slide.id} className="w-full scroll-mt-8">
-      <div className="mx-auto max-w-3xl px-6">
+    <section
+      ref={ref}
+      id={slide.id}
+      className="slide-viewport relative w-full scroll-mt-8"
+    >
+      <div className="absolute inset-x-0 top-0 mx-auto max-w-3xl px-6">
         {slide.figure ? (
           <Divider figure={slide.figure} />
         ) : (
           <div className="h-px w-full bg-hairline" />
         )}
       </div>
-      {/* Set as a type specimen: ordinal, title, lead, running text — each at
+      {/* Set as a type specimen: ordinal, title, lead, running text, each at
           a named step of the √2 scale, each at the measure its role wants.
           No font-size, gap, or max-width here is hand-picked; every one is
           drawn from the proportional system in globals.css. */}
-      <div className="specimen mx-auto max-w-3xl px-6 py-rhythm-8 md:py-rhythm-9">
-        {/* Ordinal only — the heading below carries the meaning, so this is
+      <div className="specimen mx-auto w-full max-w-3xl px-6 py-rhythm-7">
+        {/* Ordinal only, the heading below carries the meaning, so this is
             hidden rather than read out as "zero one" before every section. */}
         <p aria-hidden="true" className="specimen-ordinal">
           {marker}

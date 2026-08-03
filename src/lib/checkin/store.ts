@@ -2,12 +2,12 @@ import type { ConsentRecord } from "@/lib/consent/types";
 import type { Channel, CheckInEntry, NewCheckIn } from "./types";
 
 /**
- * Check-in storage with the consent-linkage guard — SLICE-04-01 (issue #44).
+ * Check-in storage with the consent-linkage guard, SLICE-04-01 (issue #44).
  *
  * Collection without consent must be impossible, not discouraged, so the
  * guard lives in the one function every channel must pass through rather
  * than in each channel's good intentions. Refusals are logged by reason
- * only — a refused entry's content is exactly the thing we had no right
+ * only, a refused entry's content is exactly the thing we had no right
  * to keep.
  */
 
@@ -70,7 +70,7 @@ export async function storeCheckIn(
 
 /**
  * The only sanctioned read path for analysis. Pilot rows are excluded here,
- * by construction — an analysis that wants pilot data has to go around this
+ * by construction, an analysis that wants pilot data has to go around this
  * function, and doing so is the defect the tests exist to catch.
  */
 export async function analysisEntries(

@@ -6,7 +6,7 @@
  * without loss is ornament, and ornament on a study about being worn down by
  * interfaces would be a small hypocrisy.
  *
- * These are compass-and-straightedge constructions — circles, squares, and
+ * These are compass-and-straightedge constructions, circles, squares, and
  * the divisions you can derive from them with no measurement. They are drawn
  * as hairlines, sized like punctuation, and they carry no information a
  * sighted-only reader gets and a screen-reader user does not: every heading
@@ -30,7 +30,7 @@ export type GeometryFigure =
 /** Why each figure exists. Read as the argument for keeping it. */
 export const figureMeanings: Record<GeometryFigure, string> = {
   vesica:
-    "Two circles, each through the other's centre. The oldest figure for two things overlapping without merging — a person and the system they work inside.",
+    "Two circles, each through the other's centre. The oldest figure for two things overlapping without merging, a person and the system they work inside.",
   triad:
     "Three overlapping circles. Where frustration goes: the tool, other people, yourself. They overlap because real moments are mixed.",
   lattice:
@@ -46,7 +46,7 @@ export const figureMeanings: Record<GeometryFigure, string> = {
   horizon:
     "A circle, its waterline, and one small circle below. What a study can see, and what stays under the surface.",
   gate: "An arch inscribed in a square. A threshold you choose to cross, and can decline.",
-  seed: "Three circles sharing a row — the seed of life. What returns to the people who gave something.",
+  seed: "Three circles sharing a row, the seed of life. What returns to the people who gave something.",
   compass:
     "A circle drawn from a fixed centre, its radius shown. Method: everything derived from a stated starting point.",
   monochord:

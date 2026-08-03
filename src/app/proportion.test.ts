@@ -8,7 +8,7 @@ import { describe, expect, it } from "vitest";
  * The design system asserts that its type scale is geometric on √2, that its
  * vertical rhythm uses the same progression, and that its human-factors
  * floors are real. Those are checkable statements, so they are checked here
- * rather than trusted — the same discipline the palette suite applies to
+ * rather than trusted, the same discipline the palette suite applies to
  * contrast, and the same reason: a proportional system nobody can verify is
  * decoration wearing the vocabulary of rigour.
  */
@@ -123,7 +123,9 @@ describe("human-factors floors are real", () => {
   });
 
   it("sets body leading at 1.5 or more, per WCAG 1.4.12", () => {
-    expect(Number.parseFloat(token("leading-body"))).toBeGreaterThanOrEqual(1.5);
+    expect(Number.parseFloat(token("leading-body"))).toBeGreaterThanOrEqual(
+      1.5,
+    );
   });
 });
 
@@ -140,5 +142,43 @@ describe("no orphan values", () => {
         `font-size "${size}" is not drawn from the scale`,
       ).toBe(true);
     }
+  });
+});
+
+describe("full-screen slides avoid the ways this pattern breaks", () => {
+  const slideBlock = css.slice(
+    css.indexOf(".slide-viewport {"),
+    css.indexOf(".specimen {"),
+  );
+
+  it("sizes by min-block-size, never a fixed height, so tall content cannot clip", () => {
+    expect(slideBlock).toContain("min-block-size");
+    expect(/[^-]block-size:\s*100/.test(slideBlock)).toBe(false);
+  });
+
+  it("uses svh rather than vh, which on mobile is taller than the visible area", () => {
+    expect(slideBlock).toContain("100svh");
+    // vh survives only inside the @supports fallback for older engines.
+    const outsideFallback = slideBlock.slice(0, slideBlock.indexOf("@supports"));
+    expect(outsideFallback).not.toContain("100vh");
+  });
+
+  it("places content by dividing free space, not the viewport", () => {
+    // Flex spacers in the ratio 1 : phi. Dividing the viewport height instead
+    // pushes content below the fold on short screens.
+    expect(slideBlock).toContain("flex: var(--ratio-golden)");
+    expect(slideBlock).not.toContain("calc(100svh / var(--ratio-golden)");
+  });
+
+  it("snaps by proximity, never mandatory, and not at all under reduced motion", () => {
+    // Check declarations, not prose: the comment explaining why mandatory is
+    // wrong contains the word, and an assertion that cannot tell the
+    // difference would fail on its own documentation.
+    const declarations = [
+      ...slideBlock.matchAll(/scroll-snap-type:\s*([^;]+);/g),
+    ].map((m) => m[1].trim());
+    expect(declarations).toContain("y proximity");
+    expect(declarations.some((d) => d.includes("mandatory"))).toBe(false);
+    expect(slideBlock).toContain("prefers-reduced-motion");
   });
 });

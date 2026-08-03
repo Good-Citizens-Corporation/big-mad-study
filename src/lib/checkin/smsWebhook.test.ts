@@ -5,7 +5,7 @@ import { handleInboundSms, type SmsDeps } from "./smsWebhook";
 import type { ConsentRecord } from "@/lib/consent/types";
 
 /**
- * SLICE-04-02 (issue #45) — the inbound SMS webhook, tested against Twilio
+ * SLICE-04-02 (issue #45), the inbound SMS webhook, tested against Twilio
  * fixture payloads. The consent guard is exercised through the whole path:
  * an un-consented number produces no stored entry and no study content in
  * the reply.
@@ -76,7 +76,7 @@ describe("SLICE-04-02 inbound SMS", () => {
 
     const second = await handleInboundSms(fixture("8, me"), h.deps);
     expect(h.stored).toHaveLength(1);
-    // The first message's story is not lost — it merges with the repair reply.
+    // The first message's story is not lost, it merges with the repair reply.
     expect(h.stored[0].narrative).toContain("the scheduler double-booked me");
     expect(h.stored[0].intensity).toBe(8);
     expect(h.stored[0].destination).toBe("myself");

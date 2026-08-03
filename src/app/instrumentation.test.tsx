@@ -9,7 +9,7 @@ import MethodsPage from "./methods/page";
 import ParticipantsPage from "./participants/page";
 
 /**
- * SLICE-04 (issue #12) — the acceptance criteria, one describe per GIVEN.
+ * SLICE-04 (issue #12), the acceptance criteria, one describe per GIVEN.
  */
 
 const names = () => recordedEvents().map((event) => event.name);
@@ -84,7 +84,7 @@ describe("SLICE-04 entry-flow instrumentation", () => {
       expect(names()).toEqual(["startScreenerClicked", "startScreenerClicked"]);
     });
 
-    it("THEN the link still navigates — telemetry does not swallow the click", async () => {
+    it("THEN the link still navigates, telemetry does not swallow the click", async () => {
       const user = userEvent.setup();
       render(
         <StartScreenerLink href="/start" location="hero">

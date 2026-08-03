@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { PreRegistration } from "@/content/publicHome";
 
 /**
- * The verifiable half of the transparency claim — SLICE-00-01 (issue #38).
+ * The verifiable half of the transparency claim, SLICE-00-01 (issue #38).
  *
  * Before a registry issues a DOI this says so plainly rather than going quiet.
  * A missing section reads as an oversight; a stated "not yet" reads as a
