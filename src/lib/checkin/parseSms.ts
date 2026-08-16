@@ -1,12 +1,12 @@
 import type { Destination, Intensity, Recency } from "./types";
 
 /**
- * SMS check-in parser — SLICE-04-02 (issue #45).
+ * SMS check-in parser, SLICE-04-02 (issue #45).
  *
  * The prompt teaches a format; this parser accommodates what people actually
  * send. It scans for the three structured pieces anywhere in the message,
- * but a piece only counts when it sits in *answer position* — delimited by
- * punctuation or the message edge — never when the same word is embedded in
+ * but a piece only counts when it sits in *answer position*, delimited by
+ * punctuation or the message edge, never when the same word is embedded in
  * the story ("the app ate my shift" is narrative; ", the app," is an
  * answer). It never throws and never fails: missing pieces are "skipped",
  * and `complete` tells the caller whether a repair prompt is worth sending.
@@ -61,8 +61,8 @@ function claim(text: string, inner: string): { found: boolean; rest: string } {
 
 function clean(narrative: string): string {
   return narrative
-    .replace(/\s*[,.;—–-]\s*[,.;—–-]+\s*/g, ", ")
-    .replace(/^[\s,.;—–-]+|[\s,.;—–-]+$/g, "")
+    .replace(/\s*[,.;, –-]\s*[,.;, –-]+\s*/g, ", ")
+    .replace(/^[\s,.;, –-]+|[\s,.;, –-]+$/g, "")
     .replace(/\s{2,}/g, " ");
 }
 
@@ -70,7 +70,7 @@ export function parseSms(body: string): ParsedSms {
   let rest = body.trim();
 
   // A rating counts at the very start of the message ("9 them ...", the
-  // taught format) or delimited anywhere — never embedded ("waited 2 hours").
+  // taught format) or delimited anywhere, never embedded ("waited 2 hours").
   let intensity: Intensity = "skipped";
   const leading = rest.match(/^(10|[0-9])(?=\s|$)/);
   if (leading) {
@@ -97,7 +97,7 @@ export function parseSms(body: string): ParsedSms {
   }
 
   // Destinations are ordinary words, so only answer position counts. The
-  // first pattern with a *delimited* occurrence wins — an embedded "the app"
+  // first pattern with a *delimited* occurrence wins, an embedded "the app"
   // in the story never outranks a delimited "them".
   let destination: Destination = "skipped";
   for (const [pattern, value] of DESTINATION_PATTERNS) {

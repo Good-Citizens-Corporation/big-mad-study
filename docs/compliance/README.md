@@ -6,11 +6,11 @@ They exist so that counsel and the IRB have something concrete to mark up rather
 
 | File                    | Slice             | Status                         |
 | ----------------------- | ----------------- | ------------------------------ |
-| `informed-consent.md`   | #32 (SLICE-00-03) | Draft — needs counsel + IRB    |
-| `privacy-policy.md`     | #33 (SLICE-00-04) | Draft — needs counsel          |
-| `retention-schedule.md` | #33 / #34         | Draft — needs counsel          |
-| `distress-protocol.md`  | #37 (SLICE-00-08) | Draft — needs a named owner    |
-| `pre-registration.md`   | #38 (SLICE-00-01) | Draft — ready to submit to OSF |
+| `informed-consent.md`   | #32 (SLICE-00-03) | Draft, needs counsel + IRB    |
+| `privacy-policy.md`     | #33 (SLICE-00-04) | Draft, needs counsel          |
+| `retention-schedule.md` | #33 / #34         | Draft, needs counsel          |
+| `distress-protocol.md`  | #37 (SLICE-00-08) | Draft, needs a named owner    |
+| `pre-registration.md`   | #38 (SLICE-00-01) | Draft, ready to submit to OSF |
 
 ## Decisions these drafts assume
 
@@ -20,4 +20,4 @@ Taken 2026-07-30, recorded in #30:
 - **Independent IRB review** will be sought, so the protocol is written to that bar.
 - **Transcription is self-hosted Whisper** (MIT licensed). No participant audio or transcript reaches a third-party service.
 
-Every unresolved question is marked `**[DECIDE]**` inline. Those are not rhetorical — each one blocks publication of the document it appears in.
+Every unresolved question is marked `**[DECIDE]**` inline. Those are not rhetorical, each one blocks publication of the document it appears in.

@@ -9,7 +9,7 @@ import {
 import { PageViewTracker } from "../../../components/PageViewTracker";
 
 /**
- * /start — the entry to participation, SLICE-00-03 (issue #32).
+ * /start, the entry to participation, SLICE-00-03 (issue #32).
  *
  * Consent comes before the screener by construction: the screener (EPIC-02)
  * mounts behind this gate and cannot render without an accepting decision.
@@ -30,7 +30,7 @@ export default function StartPage() {
             No problem.
           </h1>
           <p className="mt-6 text-[1.05rem] leading-[1.7]">
-            Nothing was collected — not your answer to this page, not anything.
+            Nothing was collected, not your answer to this page, not anything.
             The study will still publish everything it learns publicly, so you
             can follow along without taking part.
           </p>
@@ -54,7 +54,7 @@ export default function StartPage() {
             Thank you.
           </h1>
           <p className="mt-6 text-[1.05rem] leading-[1.7]">
-            The screener isn&rsquo;t open yet — the study doesn&rsquo;t collect
+            The screener isn&rsquo;t open yet, the study doesn&rsquo;t collect
             anything until its ethics review and registration are complete, and
             we&rsquo;d rather be slow than casual about that. When it opens,
             this page is where it starts.

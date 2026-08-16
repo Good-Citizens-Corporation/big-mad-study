@@ -1,5 +1,6 @@
 import type { Slide } from "@/lib/types";
 import { preRegistration } from "./registration";
+import { sectionFigures } from "./geometry";
 
 /**
  * A frozen, timestamped registration issued by an independent registry.
@@ -8,7 +9,7 @@ import { preRegistration } from "./registration";
 export type PreRegistration = {
   registry: string;
   doi: string;
-  /** Always a doi.org URL — it outlives any single registry's hostname. */
+  /** Always a doi.org URL, it outlives any single registry's hostname. */
   url: string;
   /** ISO date the registry froze the record. */
   registeredAt: string;
@@ -58,7 +59,7 @@ export function buildPublicHomeSlides(
         {
           type: "ul",
           items: [
-            "Who it's for: people whose day is shaped by apps, dashboards, tickets, routes, or metrics — any industry, any comfort level with technology",
+            "Who it's for: people whose day is shaped by apps, dashboards, tickets, routes, or metrics, any industry, any comfort level with technology",
             "Time commitment: a short screener, about a week of 5–10 minute check-ins, and two brief surveys",
             "What you get back: plain-language summaries of what we find, aggregate results, and an open look at our methods and limitations",
             "What it costs you: nothing. You can skip days, skip questions, or stop entirely without explaining why",
@@ -87,16 +88,16 @@ export function buildPublicHomeSlides(
         },
         {
           type: "p",
-          text: "That's the whole motivation. If work feels heavier than it used to, the usual explanation on offer is that you need better habits, better boundaries, or a better attitude. We think that's worth testing rather than assuming, because the alternative explanation—that the environment changed—is cheaper to believe and harder to prove.",
+          text: "That's the whole motivation. If work feels heavier than it used to, the usual explanation on offer is that you need better habits, better boundaries, or a better attitude. We think that's worth testing rather than assuming, because the alternative explanation, that the environment changed, is cheaper to believe and harder to prove.",
         },
         registration
           ? {
               type: "p",
-              text: `So we're doing this in the open. The hypothesis, the null it's tested against, and the limitations were registered with ${registration.registry} on ${registration.registeredAt}, before we collected any data — timestamped by someone other than us, so we can't quietly change what we were looking for. If the pattern we expect isn't there, that gets published too. A study that can only confirm itself isn't a study.`,
+              text: `So we're doing this in the open. The hypothesis, the null it's tested against, and the limitations were registered with ${registration.registry} on ${registration.registeredAt}, before we collected any data, timestamped by someone other than us, so we can't quietly change what we were looking for. If the pattern we expect isn't there, that gets published too. A study that can only confirm itself isn't a study.`,
             }
           : {
               type: "p",
-              text: "So we're doing this in the open. The hypothesis, the null it's tested against, and the limitations are written down in public, and they will be filed with an independent registry before we collect any data — timestamped by someone other than us, so we can't quietly change what we were looking for. If the pattern we expect isn't there, that gets published too. A study that can only confirm itself isn't a study.",
+              text: "So we're doing this in the open. The hypothesis, the null it's tested against, and the limitations are written down in public, and they will be filed with an independent registry before we collect any data, timestamped by someone other than us, so we can't quietly change what we were looking for. If the pattern we expect isn't there, that gets published too. A study that can only confirm itself isn't a study.",
             },
       ],
       ctas: [
@@ -123,7 +124,7 @@ export function buildPublicHomeSlides(
         { type: "p", text: "One question:" },
         {
           type: "p",
-          text: "When your day is shaped by apps, dashboards, automation, metrics, or do more with less... what happens inside you—and where does it go next?",
+          text: "When your day is shaped by apps, dashboards, automation, metrics, or do more with less... what happens inside you, and where does it go next?",
         },
         {
           type: "p",
@@ -200,7 +201,7 @@ export function buildPublicHomeSlides(
         { type: "p", text: "Research shouldn't disappear into a black box." },
         {
           type: "p",
-          text: "This study is unpaid — we say that up front rather than hinting otherwise. What you get is:",
+          text: "This study is unpaid, we say that up front rather than hinting otherwise. What you get is:",
         },
         {
           type: "ul",
@@ -223,7 +224,7 @@ export function buildPublicHomeSlides(
       body: [
         {
           type: "p",
-          text: "The flow is simple: screener → onboarding (if fit) → pre survey → about a week of check-ins → post survey → published aggregates.",
+          text: "The flow is simple: screener, then onboarding if you fit, a short survey before, about a week of check-ins, a short survey after, and published results.",
         },
         { type: "p", text: "We report associations, not proof of cause." },
         {
@@ -271,7 +272,7 @@ export function buildPublicHomeSlides(
         { type: "p", text: "We remove names and identifiers before analysis." },
         {
           type: "p",
-          text: "We publish aggregate summaries and anonymized excerpts—never raw voice.",
+          text: "We publish aggregate summaries and anonymized excerpts. Never raw voice.",
         },
         {
           type: "p",
@@ -298,7 +299,7 @@ export function buildPublicHomeSlides(
           type: "ul",
           items: [
             "18+",
-            "Can do voice or SMS check-ins for about a week",
+            "Can send a voice note or a text for about a week",
             "English for this pilot (current constraint)",
           ],
         },
@@ -309,15 +310,15 @@ export function buildPublicHomeSlides(
       ],
     },
     {
-      id: "faq",
-      title: "FAQ",
+      id: "questions",
+      title: "Questions people ask",
       body: [
         {
           type: "ul",
           items: [
             "Is this therapy? → No. It's research.",
             "Do I have to talk about AI? → No. Talk about what actually happened.",
-            "Can I do SMS only? → Yes. Voice is encouraged, not required.",
+            "Can I just text? → Yes. Voice notes are encouraged, not required.",
             "What if I miss days? → Normal. Participate when you can.",
             "Can I quit? → Any time. No explanation required.",
             "Will this affect my job? → We don't contact employers. Nothing is shared with employers.",
@@ -331,7 +332,7 @@ export function buildPublicHomeSlides(
       body: [
         {
           type: "p",
-          text: "This is where we publish what we're learning, what we changed, and why—when there are enough responses to avoid overfitting.",
+          text: "This is where we publish what we're learning, what we changed, and why, when there are enough responses to avoid overfitting.",
         },
         {
           type: "p",
@@ -345,7 +346,7 @@ export function buildPublicHomeSlides(
       body: [
         {
           type: "p",
-          text: "Questions, concerns, edge cases, researcher curiosity—send a note.",
+          text: "Questions, concerns, edge cases, researcher curiosity. Send a note.",
         },
       ],
       ctas: [
@@ -356,4 +357,11 @@ export function buildPublicHomeSlides(
   ];
 }
 
-export const publicHomeSlides: Slide[] = buildPublicHomeSlides(preRegistration);
+export const publicHomeSlides: Slide[] = buildPublicHomeSlides(
+  preRegistration,
+).map((slide) => ({
+  ...slide,
+  // The figure is looked up rather than hand-set per slide, so a section
+  // cannot drift away from the figure registered as marking it.
+  figure: slide.id ? sectionFigures[slide.id] : undefined,
+}));

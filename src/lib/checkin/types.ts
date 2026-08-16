@@ -1,5 +1,5 @@
 /**
- * The check-in entry — SLICE-04-01 (issue #44).
+ * The check-in entry, SLICE-04-01 (issue #44).
  *
  * Field names mirror the pre-registration's Operational definitions verbatim
  * (docs/compliance/pre-registration.md). The registration is the spec; the
@@ -39,7 +39,7 @@ export type NewCheckIn = {
   destination: Destination;
   intensity: Intensity;
   recency: Recency;
-  /** Immutable at ingest — pilot data must never mix with study data. */
+  /** Immutable at ingest, pilot data must never mix with study data. */
   pilot: boolean;
 };
 

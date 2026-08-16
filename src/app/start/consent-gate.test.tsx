@@ -6,7 +6,7 @@ import { CONSENT_VERSION } from "@/content/consent";
 import { recordedEvents, resetTelemetry } from "@/lib/telemetry";
 
 /**
- * SLICE-00-03 (issue #32) — the consent gate.
+ * SLICE-00-03 (issue #32), the consent gate.
  *
  * The contract: consent is presented before any personal-data question,
  * declining is as easy as accepting and ends the flow gracefully, the three

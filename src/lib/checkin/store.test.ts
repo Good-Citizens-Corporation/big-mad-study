@@ -9,7 +9,7 @@ import {
 import type { ConsentRecord } from "@/lib/consent/types";
 
 /**
- * SLICE-04-01 (issue #44) — entry schema & consent-linkage guard.
+ * SLICE-04-01 (issue #44), entry schema & consent-linkage guard.
  *
  * The two structural promises: nothing is stored without a linkable consent
  * record of the required scopes, and pilot data can never reach an analysis

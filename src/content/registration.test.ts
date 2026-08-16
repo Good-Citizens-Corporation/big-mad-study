@@ -3,7 +3,7 @@ import { buildPublicHomeSlides, type PreRegistration } from "./publicHome";
 import { preRegistration } from "./registration";
 
 /**
- * SLICE-00-01 (issue #38) — pre-registration.
+ * SLICE-00-01 (issue #38), pre-registration.
  *
  * The landing page tells visitors the hypotheses were written down before any
  * data was collected. Until a registry says so with a timestamp, that claim

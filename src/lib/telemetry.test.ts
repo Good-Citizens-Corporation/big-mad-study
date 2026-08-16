@@ -11,7 +11,7 @@ import {
 } from "./telemetry";
 
 /**
- * SLICE-04 (issue #12) — telemetry for entry flows.
+ * SLICE-04 (issue #12), telemetry for entry flows.
  *
  * ZOMBIES ordering: Zero (no props / absent window), One, Many, Boundary
  * (once-per-session idempotency), Interface (the pluggable sink), Exception

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 /**
- * Interim telemetry endpoint — receives client batches and writes one
+ * Interim telemetry endpoint, receives client batches and writes one
  * structured line per event to the runtime log, where Vercel's log explorer
  * can filter on `[bm-event]`. Replaced by a vendor adapter when one is
  * chosen; call sites never change (#12).

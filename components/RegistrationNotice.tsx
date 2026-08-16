@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { PreRegistration } from "@/content/publicHome";
 
 /**
- * The verifiable half of the transparency claim — SLICE-00-01 (issue #38).
+ * The verifiable half of the transparency claim, SLICE-00-01 (issue #38).
  *
  * Before a registry issues a DOI this says so plainly rather than going quiet.
  * A missing section reads as an oversight; a stated "not yet" reads as a
@@ -47,7 +47,7 @@ export function RegistrationNotice({
           limitations are written down in public on our issue tracker, but that
           is our own word with our own timestamps. They will be filed with an
           independent registry before we collect any data, and this page will
-          carry the DOI when they are.
+          carry its permanent link when they are.
         </p>
       )}
     </section>

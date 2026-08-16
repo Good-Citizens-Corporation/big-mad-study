@@ -3,7 +3,7 @@ import { flushTelemetry, installBeaconSink } from "./telemetrySink";
 import { recordedEvents, resetTelemetry, track } from "./telemetry";
 
 /**
- * Follow-up to SLICE-04 (#12) — the first real sink.
+ * Follow-up to SLICE-04 (#12), the first real sink.
  *
  * Events batch client-side and ship to /api/telemetry. The transport must
  * never affect the page: a dead endpoint loses events, not visitors. The
