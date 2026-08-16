@@ -1,6 +1,6 @@
 {
-    "sonarlint.connectedMode.project": {
-        "connectionId": "good-citizens",
-        "projectKey": "big-mad-study"
-    }
+  "sonarlint.connectedMode.project": {
+    "connectionId": "good-citizens",
+    "projectKey": "big-mad-study"
+  }
 }
