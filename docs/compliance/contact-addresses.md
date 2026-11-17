@@ -6,14 +6,14 @@ The study's addresses, one per **audience and obligation** — not one per depar
 
 ## The set
 
-| Address | For | Referenced by | Response commitment |
-| --- | --- | --- | --- |
-| `study@bigmadstudy.com` | Participant questions about the study — what it is, how to take part, what happens next. The default human channel. | Consent ("About the study"), landing page | **[DECIDE]** — recommend 2 business days, stated publicly |
-| `privacy@bigmadstudy.com` | Data questions, deletion requests, "what do you have on me". | Consent (deletion path), privacy policy, screener confirmation | Bounded by the published deletion window — **[DECIDE]** days |
-| `methods@bigmadstudy.com` | Methodologists, peer reviewers, replication requests, the methods brief. | Methods brief, pre-registration, `/methods` | Best effort; no participant relies on it |
-| `press@bigmadstudy.com` | Media and inbound from recruitment posts. | Public site footer (when added) | Best effort |
-| `security@bigmadstudy.com` | Vulnerability disclosure. Cheap to run, and the alternative is a researcher with no route reporting it publicly. | `/.well-known/security.txt` (when added) | Best effort, acknowledged |
-| `noreply@bigmadstudy.com` | Outbound transactional sending identity. Never monitored, and says so in every message it sends. | Prompt/confirmation email, if email is ever used | None — must state where to reply instead |
+| Address                    | For                                                                                                                 | Referenced by                                                  | Response commitment                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------ |
+| `study@bigmadstudy.com`    | Participant questions about the study — what it is, how to take part, what happens next. The default human channel. | Consent ("About the study"), landing page                      | **[DECIDE]** — recommend 2 business days, stated publicly    |
+| `privacy@bigmadstudy.com`  | Data questions, deletion requests, "what do you have on me".                                                        | Consent (deletion path), privacy policy, screener confirmation | Bounded by the published deletion window — **[DECIDE]** days |
+| `methods@bigmadstudy.com`  | Methodologists, peer reviewers, replication requests, the methods brief.                                            | Methods brief, pre-registration, `/methods`                    | Best effort; no participant relies on it                     |
+| `press@bigmadstudy.com`    | Media and inbound from recruitment posts.                                                                           | Public site footer (when added)                                | Best effort                                                  |
+| `security@bigmadstudy.com` | Vulnerability disclosure. Cheap to run, and the alternative is a researcher with no route reporting it publicly.    | `/.well-known/security.txt` (when added)                       | Best effort, acknowledged                                    |
+| `noreply@bigmadstudy.com`  | Outbound transactional sending identity. Never monitored, and says so in every message it sends.                    | Prompt/confirmation email, if email is ever used               | None — must state where to reply instead                     |
 
 ## Why these are separate
 
