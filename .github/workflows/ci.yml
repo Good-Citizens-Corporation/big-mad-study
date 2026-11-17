@@ -37,7 +37,10 @@ jobs:
 
   e2e:
     name: E2E & accessibility
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04, which Playwright 1.57 cannot install
+    # browsers on ("does not support chromium on ubuntu26.04-x64"). Unpin once
+    # the project's Playwright supports the newer image.
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
