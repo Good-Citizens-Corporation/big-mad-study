@@ -14,9 +14,9 @@ export default function MethodsPage() {
           Research Methods
         </h1>
         <p className="mt-6 text-[1.05rem] leading-[1.7]">
-          The study is assembled from three high-level modules that capture
-          experience, context, and perception. Each one is measured through a
-          blend of surveys, rapid check-ins, and interviews.
+          The study is assembled from two high-level modules that capture
+          experience and context. Each one is measured through a blend of
+          surveys, rapid check-ins, and interviews.
         </p>
         <div className="mt-16 flex flex-col gap-10 md:flex-row md:gap-12">
           <article className="flex-1 border-t border-hairline pt-6">
