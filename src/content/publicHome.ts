@@ -44,7 +44,7 @@ export function buildPublicHomeSlides(
         { label: "Start here", href: "/start", variant: "primary" },
         {
           label: "How it works",
-          href: "/v2#how-it-works",
+          href: "/#how-it-works",
           variant: "secondary",
         },
       ],
@@ -350,7 +350,7 @@ export function buildPublicHomeSlides(
       ],
       ctas: [
         { label: "Start here", href: "/start", variant: "primary" },
-        { label: "Back to updates", href: "/v2#updates", variant: "secondary" },
+        { label: "Back to updates", href: "/#updates", variant: "secondary" },
       ],
     },
   ];
